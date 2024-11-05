@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    height: 500vh;
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.logo-link img {
+    width: 100px;
+    transition: transform 0.3s;
+}
+
+.logo-link:hover img {
+    transform: scale(1.1);
+}
+
+header {
+    width: 100%;
+    padding: 60px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #282828;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-button {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #4da6ff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    background-color: #3399ff;
+    transform: scale(1.05);
+}
+
+
+.banner {
+    height: 100vh;
+    background-image: url(/style/fundo_dream_trip.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
