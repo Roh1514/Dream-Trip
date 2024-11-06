@@ -3,10 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    background-color: black;
 }
 
 html {
-    height: 500vh;
+    height: 100vh;
 }
 
 .container {
@@ -52,8 +53,7 @@ header ul li {
 
 header ul li a {
     text-decoration: none;
-    color: #282828;
-
+    color: #ffffff;
 }
 
 .button-container {
@@ -64,18 +64,16 @@ header ul li a {
 }
 
 .login-button {
-    display: inline-block;
-    padding: 15px 25px;
-    background-color: #4da6ff;
+    background-color: transparent;
     color: #ffffff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
+    border: 2px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
 }
 
 .login-button:hover {
@@ -83,11 +81,30 @@ header ul li a {
     transform: scale(1.05);
 }
 
+.container_text {
+    margin-top: 300px;
+    margin-left: 300px;
+    color: #ffffff;
+}
 
-.banner {
+.text_dream_trip {
+    font-size: 50px;
+}
+
+.dream_trip {
+    color: #D575FF;
+}
+
+.apresentacao_imagem {
+    width: 50%;
+}
+
+
+
+/* .banner {
     height: 100vh;
     background-image: url(/style/fundo_dream_trip.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
