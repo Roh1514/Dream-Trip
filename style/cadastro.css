@@ -66,10 +66,12 @@ body {
     padding: 0.4rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .login-button button:hover {
     background-color: #40b662;
+    transform: scale(1.1);
 }
 
 .login-button button a {
@@ -126,10 +128,12 @@ body {
     padding: 0.62rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .continue-button button:hover {
     background-color: #40b662;
+    transform: scale(1.1);
 }
 
 .continue-button button a {
