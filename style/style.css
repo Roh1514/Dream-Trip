@@ -36,6 +36,10 @@ html {
     z-index: 10000;
 }
 
+.navbar ul a:hover {
+    color: #3399ff;
+}
+
 .navbar ul a {
     position: relative;
     font-size: 18px;

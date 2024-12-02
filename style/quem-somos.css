@@ -36,6 +36,10 @@ html {
     z-index: 10000;
 }
 
+.navbar ul a:hover {
+    color: #3399ff;
+}
+
 .navbar ul a {
     position: relative;
     font-size: 18px;
@@ -85,4 +89,47 @@ html {
 .login-button:hover {
     background-color: #3399ff;
     transform: scale(1.05);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; /* Light grey background */
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cor_texto {
+    color: #b200b2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 10% auto; 
+    background: black;
+    line-height: 1.6; 
+    padding: 20px; 
+    color: white; 
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+p {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: justify;
+    margin-top: 20px; 
 }
