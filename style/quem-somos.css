@@ -8,7 +8,7 @@
 
 
 html {
-    height: 200vh;
+    height: 150vh;
 }
 
 .logo-link {
@@ -92,44 +92,91 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: black; /* Light grey background */
     margin: 0;
-    padding: 40px;
+    font-family: Arial, sans-serif;
     color: #333;
+    background-color: #f7f8fa;
 }
 
-.titulo {
+.hero {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
+    padding: 230px;
+    background-color: #000000;
+    box-shadow: 0 4px 6px rgb(255, 255, 255);
 }
 
-.cor_texto {
-    color: #b200b2;
+.hero-content {
+    max-width: 50%;
 }
 
-.container {
-    max-width: 800px;
-    margin: 10% auto; 
-    background: black;
-    line-height: 1.6; 
-    padding: 20px; 
-    color: white; 
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+.hero-content h1 {
+    font-size: 2.5rem;
     color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.hero-content .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #5a67d8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #434bbd;
+    transform: scale(1.1);
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.features {
+    padding: 10px;
     text-align: center;
+    background-color: #000000;
 }
 
-p {
+.features h2 {
+    font-size: 2rem;
     color: #ffffff;
-    font-size: 1.2em;
     margin-bottom: 20px;
-    text-align: justify;
-    margin-top: 20px; 
+}
+
+.features p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .hero-image {
+        text-align: center;
+    }
 }
