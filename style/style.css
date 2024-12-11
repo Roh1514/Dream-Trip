@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+}
+
+
+html {
+    height: 200vh;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.logo-link img {
+    width: 150px;
+    transition: transform 0.3s;
+}
+
+.logo-link:hover img {
+    transform: scale(1.1);
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+.navbar ul a:hover {
+    color: #3399ff;
+}
+
+.navbar ul a {
+    position: relative;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 90px;
+}
+
+.navbar ul a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: .3s;
+}
+
+
+.navbar ul a:hover::before {
+    width: 100%;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.login-button:hover {
+    background-color: #3399ff;
+    transform: scale(1.05);
+}
+
+.container_text {
+    margin-top: 300px;
+    margin-left: 300px;
+    color: #ffffff;
+}
+
+.text_dream_trip {
+    font-size: 50px;
+}
+
+.apresentacao {
+    display: flex;
+    justify-items: centers;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.dream_trip {
+    color: #D575FF;
+}
+
+.apresentacao_imagem {
+    width: 670px;
+    margin-top: 17%;
+    margin-right: 110px;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translate(-50px);
+    }
+}
+
+.container_text2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff;
+}
+
+.destinos-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #fff;
+}
+
+.card-content {
+    background-color: #fff;
+    padding: 15px;
+    color: #000000;
+}
+
+.card-title {
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 40px 0;
+}
+
+.card-price {
+    background-color: #fff;
+    color: #b200b2;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card-info {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.location {
+    background-color: #fff;
+    font-size: 14px;
+    color: #888;
+}
+
+.rating {
+    background-color: #fff;
+    font-size: 14px;
+    color: #FF8C00;
+}
+
+.footer {
+    background-color: #11111100;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+/* .banner {
+    height: 100vh;
+    background-image: url(/style/fundo_dream_trip.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */

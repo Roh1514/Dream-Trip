@@ -1,2 +1,6 @@
-# Dream-trip
-Projeto voltado para viagens e excursões
+# Dream-Trip
+- Projeto voltado para viagens e excursões
+- Membros:
+- Rogério
+- Ana Isabela
+- Leonardo

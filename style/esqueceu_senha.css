@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(92, 171, 92);
+    /* Fundo escuro */
+    color: #FFFFFF;
+    /* Texto branco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+}
+
+form {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.email_container {
+    color: #333333;
+}
+
+.email_container div {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.email_container label {
+    font-size: 0.85rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 500;
+}
+
+.email_container input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background-color: #F7F7F7;
+    color: #333;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.email_container input:focus {
+    border-color: rgb(92, 171, 92);
+    /* Vermelho */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
+}
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.login .button {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background-color: #D32F2F;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login .button:hover {
+    background-color: rgb(92, 171, 92);
+    transform: scale(1.05);
+}
+
+.cancelar {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.cancelar a {
+    font-size: 0.85rem;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cancelar a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
