@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +10,7 @@
 
 
 html {
-    height: 150vh;
+    height: 200vh;
 }
 
 .logo-link {
@@ -102,9 +104,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 230px;
+    padding: 80px 40px;
     background-color: #000000;
-    box-shadow: 0 4px 6px rgb(255, 255, 255);
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    margin: 20px;
 }
 
 .hero-content {
@@ -142,9 +145,50 @@ body {
 }
 
 .hero-image img {
+    padding-top: 70px;
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    padding: 10px;
+    margin: 30px;
+    background-color: #ffffff;
+    width: 300px;
+    height: 365px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+    box-shadow: rgba(255, 255, 255, 0.445) 0px 10px 20px, rgba(255, 255, 255, 0.432) 0px 6px 6px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+}
+
+.card>img {
+    margin-left: 100px;
+    background-color: #ffffff;
+    width: 70px;
+}
+
+.card>h1 {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+
+.card>p {
+    font-weight: 500;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #ffffff;
 }
 
 .features {
