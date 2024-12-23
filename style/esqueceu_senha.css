@@ -10,194 +10,15 @@
 
 
 html {
-    height: 210vh;
+    height: 100vh;
 }
-
-.menu-toggle {
-    display: none;
-}
-
-.menu-button {
-    display: none;
-    background-color: #3399ff;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 15px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.menu-button:hover {
-    color: #000000;
-    background-color: #ffffff;
-    transform: scale(1.1);
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #ffffff;
-    color: #ffffff;
-    padding-top: 50px;
-    transition: right 0.3s ease;
-    z-index: 999;
-}
-
-.sidebar ul {
-    list-style: none;
-    background-color: #ffffff;
-}
-
-.sidebar ul li {
-    margin: 15px 20px;
-}
-
-.sidebar ul li a {
-    color: #000000;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    transition: color 0.3s;
-    background-color: #ffffff;
-}
-
-.sidebar ul li a:hover {
-    color: #3399ff;
-}
-
-.menu-toggle:checked~.sidebar {
-    right: 0;
-}
-
-.logo-link {
-    background-color: rgb(92, 171, 92);
-    display: inline-block;
-}
-
-.logo-link img {
-    background-color: rgb(92, 171, 92);
-    width: 150px;
-    transition: transform 0.3s;
-}
-
-.logo-link:hover img {
-    transform: scale(1.1);
-}
-
-#header {
-    background-color: rgb(92, 171, 92);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-}
-
-.navbar ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(92, 171, 92);
-}
-
-.navbar ul a {
-    position: relative;
-    font-size: 18px;
-    color: #000000;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 30px;
-    transition: color 0.3s;
-    background-color: rgb(92, 171, 92);
-}
-
-.navbar ul a:hover {
-    color: #3399ff;
-}
-
-.navbar ul a::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ffffff;
-    transition: 0.3s;
-}
-
-.navbar ul a:hover::before {
-    width: 100%;
-}
-
-.button-container {
-    background-color: rgb(92, 171, 92);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.login-button {
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    padding: 8px 15px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    text-decoration: none;
-}
-
-.login-button:hover {
-    background-color: #3399ff;
-    transform: scale(1.05);
-}
-
-/* Responsividade */
-
-@media (max-width: 909px) {
-
-    .menu-button {
-        display: inline-block;
-    }
-
-    .navbar {
-        display: none;
-    }
-
-}
-
-@media (max-width: 800px) {
-    .login-button {
-        display: none;
-    }
-}
-
-
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(92, 171, 92);
-    /* Fundo escuro */
+    background: linear-gradient(-45deg, #5cab5c, #F7F7F7, #5cab5c);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
     color: #FFFFFF;
-    /* Texto branco */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,7 +42,7 @@ form {
 }
 
 h1 {
-    background-color: rgb(92, 171, 92);
+    background-color: #5cab5c00;
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -264,7 +85,6 @@ h1 {
 
 .email_container input:focus {
     border-color: rgb(92, 171, 92);
-    /* Vermelho */
     box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
 }
 
@@ -311,4 +131,20 @@ h1 {
 .cancelar a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+@keyframes bg {
+
+    8% {
+        background-position: 0% 58%;
+    }
+
+    58% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 58%;
+    }
+
 }
