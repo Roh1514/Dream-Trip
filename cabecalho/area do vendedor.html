@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area do Vendedor</title>
+    <link rel="stylesheet" href="/style/area do vendedor.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <header id="header">
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-button">☰</label>
+
+            <!-- Sidebar no lado direito -->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/cabecalho/quem-somos.html">Quem somos</a></li>
+                    <li><a href="/cabecalho/destinos.html">Destinos</a></li>
+                    <li><a href="/cabecalho/area do vendedor.html">Area do Vendedor</a></li>
+                    <li><a href="/cabecalho/suporte.html">Suporte</a></li>
+                    <li><a href="/cabecalho/login-cadastro.html">Login</a></li>
+                </ul>
+            </nav>
+
+            <a href="/index.html" class="logo-link">
+                <img src="/assets/logo_dream_trip.png" alt="Logo Dream Trip">
+            </a><!--Logo Dream Trip-->
+            <nav class="navbar">
+                <ul>
+                    <a href="/cabecalho/quem-somos.html">Quem somos</a>
+                    <a href="/cabecalho/destinos.html">Destinos</a>
+                    <a href="/cabecalho/area do vendedor.html">Area do Vendedor</a>
+                    <a href="/cabecalho/suporte.html">Suporte</a>
+                </ul>
+            </nav>
+            <div class="button-container">
+                <a href="/cabecalho/login-cadastro.html" class="login-button">Login</a>
+            </div><s></s>
+        </header>
+
+        <section>
+            <div class="corpo" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <h1>Área do Vendedor</h1>
+                <p class="sub-corpo">Gerencie seus Pacotes de Viagens e Excursões</p>
+                <p class="descricao">
+                    Aqui você pode cadastrar, editar e gerenciar facilmente os pacotes de viagens e excursões que deseja
+                    oferecer aos seus clientes.<br>
+                    Adicione descrições detalhadas, imagens e valores para atrair mais compradores e tornar suas ofertas
+                    ainda
+                    mais atrativas!</br>
+                </p>
+                <button onclick="rolarParaBaixo()">Começar</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="form-section" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <h2>Adicione aqui suas viagens e excursões:</h2>
+                <p class="highlight">Preencha aqui abaixo:</p>
+                <div class="form-container" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <form>
+                        <h3>Adicione um Pacote de Viagens:</h3>
+                        <label for="destinos">Destinos</label>
+                        <input type="text" id="destinos" placeholder="Destinos">
+
+                        <label for="preco">Preço</label>
+                        <input type="text" id="preco" placeholder="Preço (R$)">
+
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" placeholder="Descreva o seu pacote:"></textarea>
+
+                        <button type="submit" class="submit-btn">Adicionar</button>
+                    </form>
+                    <div class="form-image">
+                        <img src="/assets/imagem area do vendedor.png" alt="Pacote de Viagens">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                &copy; 2024 Dream Trip. Todos os direitos reservados.
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+        <script>
+            function rolarParaBaixo() {
+                window.scrollBy({
+                    top: 1000,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+
+</body>
+
+</html>

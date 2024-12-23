@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style/login-cadastro.css">
+</head>
+
+<main>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap">
+                <form action="/index.html" autocomplete="off" class="sign-in-form">
+                    <div class="logo">
+                        <img src="/assets/logo_dream_trip.png" alt="Dream Trip" />
+                        <h4>Dream Trip</h4>
+                    </div>
+
+                    <div class="heading">
+                        <h2>Bem Vindo!!</h2>
+                        <h6>Ainda não é registrado?</h6>
+                        <a href="#" class="toggle">Criar conta</a>
+                    </div>
+
+                    <div class="actual-form">
+                        <div class="input-wrap">
+                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Nome</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Senha</label>
+                        </div>
+
+                        <input type="submit" value="Entrar" class="sign-btn" />
+
+                        <p class="text">
+                            Esqueceu a senha ou não está conseguindo fazer login?
+                            <a href="#">Clique aqui</a>
+                        </p>
+                    </div>
+                </form>
+
+                <form action="/index.html" autocomplete="off" class="sign-up-form">
+                    <div class="logo">
+                        <img src="/assets/logo_dream_trip.png" alt="Dream Trip" />
+                        <h4>Dream Trip</h4>
+                    </div>
+
+                    <div class="heading">
+                        <h2>Crie sua Conta!</h2>
+                        <h6>Você tem conta?</h6>
+                        <a href="#" class="toggle">Login</a>
+                    </div>
+
+                    <div class="actual-form">
+                        <div class="input-wrap">
+                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Nome</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input type="email" class="input-field" autocomplete="off" required />
+                            <label>Email</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                            <label>Senha</label>
+                        </div>
+
+                        <input type="submit" value="Criar Conta" class="sign-btn" />
+
+                        <p class="text1">Escolha quem voce é:</p>
+
+                        <div class="group-btn">
+                            <input type="submit" value="Vendedor" class="vendedor-btn" />
+                            <input type="submit" value="Comprador" class="comprador-btn" />
+                        </div>
+
+                        <p class="text">
+                            Ao me inscrever, concordo com os
+                            <a href="#">Termos e Condições</a> e
+                            <a href="#">Politica de Privacidade</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="carousel">
+                <div class="images-wrapper">
+                    <img src="/assets/andando de carro - login.png" class="image img-1 show" alt="" />
+                    <img src="/assets/viajando - login.png" class="image img-2" alt="" />
+                    <img src="/assets/onibus - login.png" class="image img-3" alt="" />
+                </div>
+
+                <div class="text-slider">
+                    <div class="text-wrap">
+                        <div class="text-group">
+                            <h2>Encontre viagens inesqueciveis</h2>
+                            <h2>Tudo que você precisa está aqui</h2>
+                            <h2>Convide pessoas para embarcar nessa aventura</h2>
+                        </div>
+                    </div>
+
+                    <div class="bullets">
+                        <span class="active" data-value="1"></span>
+                        <span data-value="2"></span>
+                        <span data-value="3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Javascript file -->
+
+<script src="/login.js"></script>
+</body>
+
+</html>

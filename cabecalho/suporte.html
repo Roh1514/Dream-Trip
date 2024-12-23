@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte</title>
+    <link rel="stylesheet" href="/style/suporte.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <header id="header">
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-button">☰</label>
+
+            <!-- Sidebar no lado direito -->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/cabecalho/quem-somos.html">Quem somos</a></li>
+                    <li><a href="/cabecalho/destinos.html">Destinos</a></li>
+                    <li><a href="/cabecalho/area do vendedor.html">Area do Vendedor</a></li>
+                    <li><a href="/cabecalho/suporte.html">Suporte</a></li>
+                    <li><a href="/cabecalho/login-cadastro.html">Login</a></li>
+                </ul>
+            </nav>
+
+            <a href="/index.html" class="logo-link">
+                <img src="/assets/logo_dream_trip.png" alt="Logo Dream Trip">
+            </a><!--Logo Dream Trip-->
+            <nav class="navbar">
+                <ul>
+                    <a href="/cabecalho/quem-somos.html">Quem somos</a>
+                    <a href="/cabecalho/destinos.html">Destinos</a>
+                    <a href="/cabecalho/area do vendedor.html">Area do Vendedor</a>
+                    <a href="/cabecalho/suporte.html">Suporte</a>
+                </ul>
+            </nav>
+            <div class="button-container">
+                <a href="/cabecalho/login-cadastro.html" class="login-button">Login</a>
+            </div>
+        </header>
+        <main class="main" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div class="form_text">
+                <h1>Contate o nosso Suporte!</h1>
+                <div class="bar"></div>
+                <div class="bar2"></div>
+            </div>
+            <div class="container">
+                <div class="support-content">
+                    <h2>Como podemos ajudar você hoje?</h2>
+                    <p>Se você estiver enfrentando problemas ou tiver dúvidas, nossa equipe de suporte está pronta para
+                        ajudar.
+                    </p>
+
+                    <form action="#" method="POST">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+
+                        <label for="subject">Assunto</label>
+                        <select id="subject" name="subject" required>
+                            <option value="duvida">Dúvida</option>
+                            <option value="problema">Problema</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="outros">Outros</option>
+                        </select>
+
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Descreva sua mensagem aqui"
+                            required></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer">
+                &copy; 2024 Dream Trip. Todos os direitos reservados.
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+</body>
+
+</html>
