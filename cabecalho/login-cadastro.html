@@ -120,6 +120,20 @@
 <!-- Javascript file -->
 
 <script src="/login.js"></script>
+
+<script>
+    const buttons = document.querySelectorAll('.group-btn input[type="submit"]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+
+            buttons.forEach(btn => btn.classList.remove('pressed'));
+
+
+            this.classList.add('pressed');
+        });
+    });
+</script>
 </body>
 
 </html>

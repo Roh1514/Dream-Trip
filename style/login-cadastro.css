@@ -188,24 +188,7 @@ label {
     gap: 10px;
 }
 
-.vendedor-btn {
-    display: inline-block;
-    width: 150px;
-    height: 40px;
-    background-color: #151111;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 0.8rem;
-    font-size: 0.8rem;
-    margin-bottom: 2rem;
-    transition: 0.3s;
-}
-
-.vendedor-btn:hover {
-    background-color: #8371fd;
-}
-
+.vendedor-btn,
 .comprador-btn {
     display: inline-block;
     width: 150px;
@@ -220,8 +203,16 @@ label {
     transition: 0.3s;
 }
 
+.vendedor-btn:hover,
 .comprador-btn:hover {
     background-color: #8371fd;
+}
+
+.vendedor-btn.pressed,
+.comprador-btn.pressed {
+    background-color: #8371fd;
+    box-shadow: inset 0 0 5px #000;
+    transform: translateY(2px);
 }
 
 .text {
