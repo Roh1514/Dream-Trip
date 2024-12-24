@@ -117,11 +117,34 @@
             </div>
         </div>
     </div>
+    <div class="loader">
+        <div class="logo">
+            <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
+        </div>
+        <div class="loading-bar"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <div class="content">
+    </div>
 </main>
 
 <!-- Javascript file -->
 
 <script src="/login.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loader = document.querySelector('.loader');
+        const content = document.querySelector('.content');
+
+        loader.style.display = 'flex';
+
+        setTimeout(() => {
+            loader.style.display = 'none';
+            content.style.display = 'block';
+        }, 1500);
+    });
+</script>
 
 <script>
     const buttons = document.querySelectorAll('.group-btn input[type="submit"]');

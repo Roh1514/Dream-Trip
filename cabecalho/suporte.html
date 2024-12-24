@@ -79,6 +79,16 @@
                     </form>
                 </div>
             </div>
+            <div class="loader">
+                <div class="logo">
+                    <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
+                </div>
+                <div class="loading-bar"></div>
+                <div class="loading-text">Loading...</div>
+            </div>
+
+            <div class="content">
+            </div>
         </main>
         <footer>
             <div class="footer">
@@ -86,6 +96,20 @@
             </div>
         </footer>
 
+        <!-- Parte Script JS -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const loader = document.querySelector('.loader');
+                const content = document.querySelector('.content');
+
+                loader.style.display = 'flex';
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    content.style.display = 'block';
+                }, 1500);
+            });
+        </script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
