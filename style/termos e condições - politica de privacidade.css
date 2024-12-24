@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(45deg, #007BFF, #00C851);
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h1,
+h2 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+p,
+ul {
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    background: #333;
+    color: #fff;
+}
+
+.contact {
+    margin-top: 20px;
+}
+
+.contact a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #007BFF;
+    margin: 0 10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00C851;
+}
+
+.back-arrow {
+    display: inline-block;
+    margin: 20px 0;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+.back-arrow:hover {
+    color: #00C851;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .social-icons a {
+        font-size: 1.2em;
+        margin: 0 5px;
+    }
+
+    .back-arrow {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .social-icons a {
+        font-size: 1em;
+        margin: 0 3px;
+    }
+
+    .back-arrow {
+        font-size: 0.9em;
+    }
+}
