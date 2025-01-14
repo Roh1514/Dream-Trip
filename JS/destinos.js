@@ -70,14 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebar.classList.toggle('active');
     }
 
+    function proceedToCheckout() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.href = 'area de pagamento.html'; // Altere para o caminho correto do seu arquivo de checkout
+    }
+
     document.querySelector('.close-cart').addEventListener('click', function () {
         toggleCartSidebar();
     });
 
-    // Adicionando o evento para o botão de fechar mobile
     document.querySelector('.close-cart-mobile').addEventListener('click', function () {
         toggleCartSidebar();
     });
+
+    document.querySelector('.buy-now').addEventListener('click', proceedToCheckout);
 
     document.querySelectorAll('.card_button button').forEach(button => {
         button.addEventListener('click', function (event) {

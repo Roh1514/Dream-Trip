@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/style/area de pagamento.css">
+    <link rel="stylesheet" href="/JS/checkout.js">
+    <script src="/JS/checkout.js"></script>
+</head>
+
+<body>
+    <div class="checkout">
+        <h2>Checkout</h2>
+
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Enter your address">
+        </div>
+        <div class="form-group">
+            <label for="county">County</label>
+            <select id="county">
+                <option value="">Choose...</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <select id="city">
+                <option value="">Choose...</option>
+            </select>
+        </div>
+
+        <h3>Items in Cart</h3>
+        <ul id="cart-items">
+            <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
+        </ul>
+
+        <div class="checkout-summary">
+            Total Quantity: <span id="total-quantity">0</span><br>
+            Total Price: <span id="total-price">$0.00</span>
+        </div>
+
+        <button id="confirm-checkout">CHECKOUT</button>
+
+        <div class="payment-methods">
+            <h3>Formas de pagamento</h3>
+            <img src="applepay.png" alt="Apple Pay">
+            <img src="mastercard.png" alt="MasterCard">
+            <img src="visa.png" alt="Visa">
+            <img src="elo.png" alt="Elo">
+            <img src="americanexpress.png" alt="American Express">
+            <img src="boleto.png" alt="Boleto">
+        </div>
+    </div>
+</body>
+
+</html>
