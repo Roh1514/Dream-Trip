@@ -94,6 +94,19 @@ input[type="email"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pay-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.pay-button:active {
+    transform: scale(0.95);
 }
 
 .error {
@@ -181,7 +194,6 @@ input[type="email"] {
 
 
 @media (max-width: 1200px) {
-
     .back-button-container {
         display: none;
     }
@@ -190,58 +202,103 @@ input[type="email"] {
     .detalhes-pagamento {
         width: 100%;
         padding: 15px;
-        overflow: auto;
-        max-height: 400px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
     }
 }
 
 @media (max-width: 800px) {
-
     .container {
-        flex-direction: column;
-        overflow: auto;
+        overflow-y: auto;
+        max-height: 100vh;
     }
 
     .detalhes-pagamento {
         order: 1;
-        width: 100%;
-        max-height: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        flex-grow: 1;
     }
 
     .resumo {
         order: 2;
-        width: 100%;
-        max-height: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
         margin-bottom: 20px;
     }
 
     .pay-button {
-        width: 100%;
         padding: 15px;
         font-size: 1.2rem;
+        border-radius: 8px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        transition: background-color 0.3s;
+        width: 100%;
     }
 
-    .back-button-container {
-        display: none;
+    .pay-button:hover {
+        background-color: #45a049;
+    }
+
+    .meu-carrinho {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+        border-radius: 8px;
+        margin-top: auto;
     }
 }
 
 @media (max-width: 600px) {
+    .container {
+        overflow-y: auto;
+        max-height: 100vh;
+    }
 
     .resumo h2,
     .detalhes-pagamento h2 {
         font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
     .payment-methods img {
         max-width: 70px;
+        margin: 0 auto;
+        display: block;
     }
 
     .pay-button {
         margin-bottom: 10px;
+        font-size: 1.1rem;
     }
 
-    .back-button-container {
-        display: none;
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button.comprar {
+        width: 100%;
+        padding: 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button.comprar:hover {
+        background-color: #45a049;
+        transform: scale(1.1);
     }
 }
