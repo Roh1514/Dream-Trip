@@ -14,42 +14,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Centraliza verticalmente */
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    overflow: hidden;
 }
 
 .container {
+    flex-wrap: wrap;
     display: flex;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 80%;
-    /* Largura do contêiner */
-    max-width: 800px;
-    /* Largura máxima do contêiner */
+    width: 100%;
+    max-width: 900px;
 }
 
 .resumo {
     background-color: #6c63ff;
-    /* Cor de fundo do resumo */
     color: white;
     padding: 20px;
     width: 50%;
-    /* Largura do resumo */
     position: relative;
-    /* Para posicionar o ícone de relâmpago */
 }
 
 .resumo h2 {
     background-color: #6c63ff;
     margin: 0 0 10px;
-    /* Margem inferior do título */
     display: flex;
     align-items: center;
-    /* Alinha o ícone com o texto */
 }
 
 .resumo h2::before {
@@ -75,16 +69,13 @@ body {
 .input-container {
     background-color: #ffffff;
     margin-bottom: 15px;
-    /* Espaçamento entre os campos de entrada */
 }
 
 .input-container label {
     background-color: #ffffff;
     display: block;
     margin-bottom: 5px;
-    /* Margem inferior do rótulo */
     font-weight: bold;
-    /* Negrito para os rótulos */
 }
 
 input[type="text"],
@@ -97,14 +88,21 @@ input[type="email"] {
 }
 
 .pay-button {
-    background-color: #6c63ff;
-    /* Cor do botão */
+    padding: 10px 20px;
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+}
+
+.error {
+    background-color: #ffffff;
+    color: red;
+}
+
+.input-container {
+    margin: 10px 0;
 }
 
 .payment-methods {
@@ -147,7 +145,6 @@ input[type="email"] {
     display: flex;
     justify-content: space-between;
     margin: 0;
-    /* Margem entre os itens */
 }
 
 .order-summary-item span {
@@ -180,4 +177,71 @@ input[type="email"] {
     color: #000000;
     background-color: #ffffff;
     transform: scale(1.1);
+}
+
+
+@media (max-width: 1200px) {
+
+    .back-button-container {
+        display: none;
+    }
+
+    .resumo,
+    .detalhes-pagamento {
+        width: 100%;
+        padding: 15px;
+        overflow: auto;
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .container {
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    .detalhes-pagamento {
+        order: 1;
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .resumo {
+        order: 2;
+        width: 100%;
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .pay-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .back-button-container {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .resumo h2,
+    .detalhes-pagamento h2 {
+        font-size: 1.5rem;
+    }
+
+    .payment-methods img {
+        max-width: 70px;
+    }
+
+    .pay-button {
+        margin-bottom: 10px;
+    }
+
+    .back-button-container {
+        display: none;
+    }
 }

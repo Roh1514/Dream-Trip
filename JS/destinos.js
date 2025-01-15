@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let cart = [];
+
     function addToCart(product) {
         const existingProductIndex = cart.findIndex(item => item.name === product.name);
         if (existingProductIndex > -1) {
@@ -13,10 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleCartSidebar();
         }
     }
+
     function removeFromCart(index) {
         cart.splice(index, 1);
         updateCartSidebar();
     }
+
     function updateCartSidebar() {
         const cartContainer = document.getElementById('cart-items');
         cartContainer.innerHTML = "";
@@ -34,13 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
             cartContainer.appendChild(li);
             total += item.price * item.quantity;
         });
+
         document.querySelector('.total-price').innerText = `R$${total.toFixed(2)}`;
+
         document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', function () {
                 const index = parseInt(button.getAttribute('data-index'));
                 removeFromCart(index);
             });
         });
+
         document.querySelectorAll('.item-quantity').forEach(input => {
             input.addEventListener('change', function () {
                 const index = parseInt(input.getAttribute('data-index'));
@@ -55,24 +61,29 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
     function toggleCartSidebar() {
         const sidebar = document.querySelector('.sidebar-cart');
         sidebar.classList.toggle('active');
     }
+
     function proceedToCheckout() {
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.href = 'area de pagamento.html';
     }
+
     document.querySelector('.close-cart').addEventListener('click', function () {
         toggleCartSidebar();
     });
+
     document.querySelector('.close-cart-mobile').addEventListener('click', function () {
         toggleCartSidebar();
     });
+
     document.querySelector('.buy-now').addEventListener('click', proceedToCheckout);
 
     document.querySelectorAll('.card_button button').forEach(button => {
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function () {
             const card = button.closest('.card');
             const productName = card.querySelector('h1').innerText;
             const productPrice = parseFloat(card.querySelector('p').innerText.replace('R$', '').replace(',', '.'));
