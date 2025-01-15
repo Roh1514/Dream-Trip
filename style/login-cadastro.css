@@ -316,6 +316,24 @@ form.sign-in-form {
   pointer-events: all;
 }
 
+.termos-condicoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.termos-link {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.termos-link:hover {
+  text-decoration: underline;
+}
+
 .loader {
   position: fixed;
   top: 0;
