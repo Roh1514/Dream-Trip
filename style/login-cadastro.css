@@ -402,10 +402,6 @@ form.sign-in-form {
   color: #000000;
 }
 
-.content {
-  display: none;
-}
-
 @media (max-width: 870px) {
   .container {
     min-height: 800px;
