@@ -1,39 +1,38 @@
-const inputs = document.querySelectorAll(".input-field");
-const toggle_btn = document.querySelectorAll(".toggle");
-const main = document.querySelector("main");
-const bullets = document.querySelectorAll(".bullets span");
-const images = document.querySelectorAll(".image");
+function mostrarSenha() {
+    var inputfield = document.getElementById('senha');
+    var btnShowPass = document.getElementById('btn-senha');
 
-inputs.forEach((inp) => {
-    inp.addEventListener("focus", () => {
-        inp.classList.add("active");
-    });
-    inp.addEventListener("blur", () => {
-        if (inp.value != "") return;
-        inp.classList.remove("active");
-    });
-});
-
-toggle_btn.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        main.classList.toggle("sign-up-mode");
-    });
-});
-
-function moveSlider() {
-    let index = this.dataset.value;
-
-    let currentImage = document.querySelector(`.img-${index}`);
-    images.forEach((img) => img.classList.remove("show"));
-    currentImage.classList.add("show");
-
-    const textSlider = document.querySelector(".text-group");
-    textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
-
-    bullets.forEach((bull) => bull.classList.remove("active"));
-    this.classList.add("active");
+    if (inputfield.type === 'password') {
+        inputfield.type = 'text';
+        btnShowPass.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+        inputfield.type = 'password';
+        btnShowPass.classList.replace('fa-eye', 'fa-eye-slash');
+    }
 }
 
-bullets.forEach((bullet) => {
-    bullet.addEventListener("click", moveSlider);
+function mostrarSenha2() {
+    var inputfield = document.getElementById('senha2');
+    var btnShowPass = document.getElementById('btn-senha2');
+
+    if (inputfield.type === 'password') {
+        inputfield.type = 'text';
+        btnShowPass.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+        inputfield.type = 'password';
+        btnShowPass.classList.replace('fa-eye', 'fa-eye-slash');
+    }
+}
+
+
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
+
+sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
 });

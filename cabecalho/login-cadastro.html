@@ -1,166 +1,153 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/style/login-cadastro.css">
-    <link rel="stylesheet" href="/JS/login.js">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/f9cd3b811e.js" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="/style/login-cadastro.css" />
+  <title>Tela de Login</title>
 </head>
 
-<main>
-    <div class="box">
-        <div class="inner-box">
-            <div class="forms-wrap">
-                <form action="/index.html" autocomplete="off" class="sign-in-form">
-                    <div class="logo">
-                        <img src="/assets/logo_dream_trip.png" alt="Dream Trip" />
-                        <h4>Dream Trip</h4>
-                    </div>
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" class="sign-in-form">
+          <h2 class="title">Login</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="senha" placeholder="Password" />
+            <i class="fa-regular fa-eye-slash" id="btn-senha" onclick="mostrarSenha()"></i>
+          </div>
+          <div class="forgot-password">
+            <a href="/cabecalho/esqueceu _senha.html" id="esqueceu-senha">Esqueceu a senha?</a>
+          </div>
 
-                    <div class="heading">
-                        <h2>Bem Vindo!!</h2>
-                        <h6>Ainda não é registrado?</h6>
-                        <a href="#" class="toggle">Criar conta</a>
-                    </div>
+          <a href="/index.html">
+            <input type="button" value="Login" class="btn solid">
+          </a>
+          <a href="#">
+            <input type="button" value="Cliente" class="btg solid">
+            <input type="submit" value="Organizador" class="btg Organizador ">
+          </a>
+          <p class="social-text">Logue com outras plataformas!</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+        <form action="#" class="sign-up-form">
+          <h2 class="title">Crie sua Conta</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="senha2" placeholder="Password" />
+            <i class="fa-regular fa-eye-slash" id="btn-senha2" onclick="mostrarSenha2()"></i>
+          </div>
+          <div class="forgot-password">
+            <a href="/cabecalho/esqueceu _senha.html" id="esqueceu-senha">Esqueceu a senha?</a>
+          </div>
+          <a href="/index.html">
+            <input type="button" value="Sign up" class="btn solid">
+          </a>
+          <a href="#">
+            <input type="button" value="Cliente" class="btg solid">
+            <input type="submit" value="Organizador" class="btg Organizador ">
+          </a>
 
-                    <div class="actual-form">
-                        <div class="input-wrap">
-                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
-                            <label>Nome</label>
-                        </div>
+          <p class="social-text">Logue com outras plataformas!</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
 
-                        <div class="input-wrap">
-                            <input type="password" minlength="4" class="input-field" autocomplete="off" required />
-                            <label>Senha</label>
-                        </div>
-
-                        <input type="submit" value="Entrar" class="sign-btn" />
-
-                        <p class="text">
-                            Esqueceu a senha ou não está conseguindo fazer login?
-                            <a href="/cabecalho/esqueceu _senha.html">Clique aqui</a>
-                        </p>
-                    </div>
-                </form>
-
-                <form action="/index.html" autocomplete="off" class="sign-up-form">
-                    <div class="logo">
-                        <img src="/assets/logo_dream_trip.png" alt="Dream Trip" />
-                        <h4>Dream Trip</h4>
-                    </div>
-
-                    <div class="heading">
-                        <h2>Crie sua Conta!</h2>
-                        <h6>Você tem conta?</h6>
-                        <a href="#" class="toggle">Login</a>
-                    </div>
-
-                    <div class="actual-form">
-                        <div class="input-wrap">
-                            <input type="text" minlength="4" class="input-field" autocomplete="off" required />
-                            <label>Nome</label>
-                        </div>
-
-                        <div class="input-wrap">
-                            <input type="email" class="input-field" autocomplete="off" required />
-                            <label>Email</label>
-                        </div>
-
-                        <div class="input-wrap">
-                            <input type="password" minlength="4" class="input-field" autocomplete="off" required />
-                            <label>Senha</label>
-                        </div>
-
-                        <input type="submit" value="Criar Conta" class="sign-btn" />
-
-                        <p class="text1">Escolha quem voce é:</p>
-
-                        <div class="group-btn">
-                            <input type="submit" value="Vendedor" class="vendedor-btn" />
-                            <input type="submit" value="Comprador" class="comprador-btn" />
-                        </div>
-
-                        <p class="text">
-                            Ao me inscrever, concordo com os
-                            <a href="/cabecalho/termos e condições - politica de privacidade.html">Termos e
-                                Condições</a> e
-                            <a href="/cabecalho/termos e condições - politica de privacidade.html">Politica de
-                                Privacidade</a>
-                        </p>
-                    </div>
-                </form>
-            </div>
-
-            <div class="carousel">
-                <div class="images-wrapper">
-                    <img src="/assets/andando de carro - login.png" class="image img-1 show" alt="" />
-                    <img src="/assets/viajando - login.png" class="image img-2" alt="" />
-                    <img src="/assets/onibus - login.png" class="image img-3" alt="" />
-                </div>
-
-                <div class="text-slider">
-                    <div class="text-wrap">
-                        <div class="text-group">
-                            <h2>Encontre viagens inesqueciveis</h2>
-                            <h2>Tudo que você precisa está aqui</h2>
-                            <h2>Convide pessoas para embarcar nessa aventura</h2>
-                        </div>
-                    </div>
-
-                    <div class="bullets">
-                        <span class="active" data-value="1"></span>
-                        <span data-value="2"></span>
-                        <span data-value="3"></span>
-                    </div>
-                </div>
-            </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>Novo Aqui ? </h3>
+          <p>
+            Crie sua conta e explore novas possibilidades com a gente!
+          </p>
+          <button class="btn transparent" id="sign-up-btn">
+            Sign up
+          </button>
         </div>
-    </div>
-    <div class="loader">
-        <div class="logo-load">
-            <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
+        <img src="/assets/New-here.png" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>De novo Aqui ?</h3>
+          <p>
+            Bem-Vindo de volta! Faça login agora e continue aproveitando nossos serviços.
+          </p>
+          <button class="btn transparent" id="sign-in-btn">
+            Sign in
+          </button>
         </div>
-        <div class="loading-bar"></div>
-        <div class="loading-text">Loading...</div>
+        <img src="/assets/One-of-us-.png" class="image" alt="" />
+      </div>
     </div>
-
-    <div class="content">
+  </div>
+  <div class="loader">
+    <div class="logo">
+      <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
     </div>
-</main>
+    <div class="loading-bar"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
 
-<!-- Javascript file -->
-
-<script src="/JS/login.js"></script>
-<script>
+  <div class="content">
+  </div>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const loader = document.querySelector('.loader');
-        const content = document.querySelector('.content');
+      const loader = document.querySelector('.loader');
+      const content = document.querySelector('.content');
 
-        loader.style.display = 'flex';
+      loader.style.display = 'flex';
 
-        setTimeout(() => {
-            loader.style.display = 'none';
-            content.style.display = 'block';
-        }, 1500);
+      setTimeout(() => {
+        loader.style.display = 'none';
+        content.style.display = 'block';
+      }, 1500);
     });
-</script>
-
-<script>
-    const buttons = document.querySelectorAll('.group-btn input[type="submit"]');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-
-            buttons.forEach(btn => btn.classList.remove('pressed'));
-
-
-            this.classList.add('pressed');
-        });
-    });
-</script>
+  </script>
+  <script src="/JS/login.js"></script>
 </body>
 
 </html>

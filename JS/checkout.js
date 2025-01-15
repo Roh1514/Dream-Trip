@@ -46,13 +46,11 @@ function verificarCampos() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const dobPattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[0-9]{4}$/;
 
-    // Validação de e-mail
     if (!email || !emailPattern.test(email)) {
         mensagem.textContent = 'Por favor, preencha um email válido.';
         return;
     }
 
-    // Validação para diferentes métodos de pagamento
     if (metodoPagamento === 'visa' || metodoPagamento === 'mastercard') {
         if (!card) {
             mensagem.textContent = 'Por favor, preencha o número do cartão.';
