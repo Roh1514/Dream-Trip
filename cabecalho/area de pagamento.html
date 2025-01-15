@@ -11,61 +11,70 @@
 </head>
 
 <body>
-    <div class="checkout">
-        <h2>Checkout</h2>
+    <div class="container">
+        <div class="resumo">
+            <h2>Seu Carrinho</h2>
+            <div id="order-items"></div> <!-- Itens do pedido serão inseridos aqui -->
+            <div class="order-summary-item" style="font-weight: bold;">
+                <span>Total</span>
+                <span id="total-price">R$0.00</span> <!-- Total inicial -->
+            </div>
+            <div class="back-button-container">
+                <button class="back-button" onclick="window.history.back();">Voltar</button>
+            </div>
+        </div>
+        <div class="spacing"></div>
 
-        <div class="form-group">
-            <label for="fullName">Nome Completo</label>
-            <input type="text" id="fullName" placeholder="Seu nome completo">
-        </div>
-        <div class="form-group">
-            <label for="phoneNumber">Numero de Telefone</label>
-            <input type="text" id="phoneNumber" placeholder="Coloque seu numero de telefone">
-        </div>
-        <div class="form-group">
-            <label for="address">Email</label>
-            <input type="text" id="address" placeholder="Coloque seu e-mail">
-        </div>
-        <div class="form-group">
-            <label for="county">Pais</label>
-            <select id="countys">
-                <option value="pais">Brazil</option>
-                <option value="pais">Alemanhã</option>
-                <option value="pais">Estados Unidos</option>
-                <option value="pais">Dubai</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="city">Cidade</label>
-            <select id="citys">
-                <option value="cidade">São Paulo</option>
-                <option value="cidade">Sorocaba</option>
-                <option value="cidade">São Roque</option>
-                <option value="cidade">Mairinque</option>
-                <option value="cidade">Piedade</option>
-            </select>
-        </div>
+        <div class="detalhes-pagamento">
+            <h2>Formas de Pagamentos</h2>
+            <div class="payment-methods">
+                <img src="/assets/visa-17.svg" alt="VISA" onclick="selectPaymentMethod('visa', this)">
+                <img src="/assets/mastercard-18.svg" alt="MasterCard" onclick="selectPaymentMethod('mastercard', this)">
+                <img src="/assets/pix-106.svg" alt="Pix" onclick="selectPaymentMethod('pix', this)">
+                <img src="/assets/boleto-logo.svg" alt="Boleto" onclick="selectPaymentMethod('boleto', this)">
+            </div>
 
-        <h3>Itens no Carrinho</h3>
-        <ul id="cart-items">
-            <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
-        </ul>
+            <div class="input-container" id="email-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Seu email">
+            </div>
 
-        <div class="checkout-summary">
-            Total da Quantidade: <span id="total-quantity">0</span><br>
-            Total do Preço: <span id="total-price">$0.00</span>
-        </div>
+            <div class="input-container" id="card-container">
+                <label for="card">Número do Cartão</label>
+                <input type="text" id="card" placeholder="Número do cartão">
+            </div>
 
-        <button id="confirm-checkout">CHECKOUT</button>
+            <div class="input-container" id="expiry-container">
+                <label for="expiry">Data Limite</label>
+                <input type="text" id="expiry" placeholder="dd/mm/aaaa">
+            </div>
 
-        <div class="payment-methods">
-            <h3>Formas de pagamento</h3>
-            <img src="applepay.png" alt="Apple Pay">
-            <img src="mastercard.png" alt="MasterCard">
-            <img src="visa.png" alt="Visa">
-            <img src="elo.png" alt="Elo">
-            <img src="americanexpress.png" alt="American Express">
-            <img src="boleto.png" alt="Boleto">
+            <div class="input-container" id="cvv-container">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="CVV">
+            </div>
+
+            <div class="input-container" id="pix-container" style="display: none;">
+                <label for="full-name">Nome Completo</label>
+                <input type="text" id="full-name" placeholder="Seu nome completo">
+            </div>
+
+            <div class="input-container" id="cpf-container" style="display: none;">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="Seu CPF">
+            </div>
+
+            <div class="input-container" id="dob-container" style="display: none;">
+                <label for="dob">Data de Nascimento</label>
+                <input type="text" id="dob" placeholder="dd/mm/aaaa">
+            </div>
+
+            <div class="input-container" id="rg-container" style="display: none;">
+                <label for="rg">RG</label>
+                <input type="text" id="rg" placeholder="Seu RG">
+            </div>
+
+            <button class="pay-button">Comprar</button>
         </div>
     </div>
 </body>
