@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="/JS/script.js">
     <script src="/JS/script.js"></script>
+    <link rel="stylesheet" href="/JS/faq.js">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
@@ -18,7 +19,6 @@
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="menu-button">☰</label>
-
         <!-- Sidebar no lado direito -->
         <nav class="sidebar">
             <ul>
@@ -45,7 +45,6 @@
         <div class="button-container">
             <a href="/cabecalho/login-cadastro.html" class="login-button">Login</a>
         </div>
-
     </header>
     <section class="main" data-aos="fade-up">
         <div class="text">
@@ -67,7 +66,6 @@
         <div class="bar0"></div>
         <div class="bar2"></div>
     </section>
-
     <section class="about2">
         <img src="/assets/imagem tela principal - index.svg" alt="Viajando" data-aos="fade-right">
         <div class="card_text2" data-aos="fade-right">
@@ -103,10 +101,7 @@
                 </div>
             </div>
         </div>
-
-
     </section>
-
     <section class="blog-section" data-aos="fade-up">
         <h1>Blog de Viagens</h1>
         <div class="bar"></div>
@@ -143,16 +138,6 @@
             </div>
         </div>
     </section>
-
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css"> <!-- Certifique-se de que o caminho está correto -->
-        <title>Política de Viagens</title>
-    </head>
 
     <section class="travel-policy" data-aos="fade-up">
         <h1>Política de Viagens</h1>
@@ -197,8 +182,42 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="faq-title">Perguntas Frequentes</div>
+        <h3 onclick="toggleElement(this)">Pergunta 1 <span class="icon">▼</span></h3>
+        <div class="faq-container">
+            <div class="faq">
+                <h3 onclick="toggleElement(this)">1. Quais são os destinos disponíveis?</h3>
+                <div class="faq-content" style="display: none;">
+                    <p>Oferecemos excursões para diversos destinos, incluindo praias, montanhas e cidades históricas.
+                        Confira nossa página de destinos para mais detalhes.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3 onclick="toggleElement(this)">2. Como posso reservar uma excursão?</h3>
+                <div class="faq-content" style="display: none;">
+                    <p>Você pode reservar uma excursão diretamente em nosso site, selecionando o destino e a data
+                        desejada.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3 onclick="toggleElement(this)">3. Quais são as formas de pagamento aceitas?</h3>
+                <div class="faq-content" style="display: none;">
+                    <p>Aceitamos cartões de crédito, débito e pagamentos via PayPal.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3 onclick="toggleElement(this)">4. Há descontos para grupos?</h3>
+                <div class="faq-content" style="display: none;">
+                    <p>Sim, oferecemos descontos especiais para grupos. Entre em contato conosco para mais informações.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
+    <script src="/JS/faq.js"></script>
     <div class="loader">
         <div class="logo">
             <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
