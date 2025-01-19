@@ -4,18 +4,18 @@ function toggleElement(element) {
     const isOpen = content.classList.toggle('show');
 
     if (isOpen) {
-        content.style.display = 'block'; // Exibe o conteúdo
+        content.style.display = 'block';
         requestAnimationFrame(() => {
-            content.style.maxHeight = content.scrollHeight + "px"; // Ajusta a altura
-            content.style.opacity = 1; // Define opacidade
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.opacity = 1;
         });
-        element.classList.add('active'); // Adiciona classe para efeito bonito
+        element.classList.add('active');
     } else {
-        content.style.maxHeight = 0; // Reduz a altura
-        content.style.opacity = 0; // Define opacidade
+        content.style.maxHeight = 0;
+        content.style.opacity = 0;
         setTimeout(() => {
-            content.style.display = 'none'; // Esconde após a animação
-        }, 300); // Tempo para coincidir com a duração da transição CSS
-        element.classList.remove('active'); // Remove classe para efeito bonito
+            content.style.display = 'none';
+        }, 300);
+        element.classList.remove('active');
     }
 }
