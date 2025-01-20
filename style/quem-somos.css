@@ -556,3 +556,80 @@ body {
 .content {
     display: none;
 }
+
+/* -------- RODAPÉ (FOOTER) ------- */
+
+.footer {
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.438);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.footer .logo-footer img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.footer nav {
+    margin-bottom: 10px;
+}
+
+.footer nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+
+.footer .social-icons {
+    margin: 20px 0;
+}
+
+.footer .social-icons a {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 5px;
+    transition: transform 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.footer .social-icons a:hover {
+    color: #007bff;
+    transform: scale(1.2);
+}
+
+.footer .copyright {
+    background-color: #ffffff00;
+    color: white;
+    margin-top: 30px;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .footer nav a {
+        margin: 0 5px;
+        font-size: 12px;
+    }
+
+    .footer .social-icons a {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+}
