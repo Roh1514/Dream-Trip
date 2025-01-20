@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -66,16 +67,20 @@
                 <h2>Adicione aqui suas viagens e excursões:</h2>
                 <p class="highlight">Preencha aqui abaixo:</p>
                 <div class="form-container" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <form>
+                    <form id="travel-package-form">
                         <h3>Adicione um Pacote de Viagens:</h3>
+
                         <label for="destinos">Destinos</label>
-                        <input type="text" id="destinos" placeholder="Destinos">
+                        <input type="text" id="destinos" placeholder="Destinos" required>
 
                         <label for="preco">Preço</label>
-                        <input type="text" id="preco" placeholder="Preço (R$)">
+                        <input type="text" id="preco" placeholder="Preço (R$)" required>
 
                         <label for="descricao">Descrição</label>
-                        <textarea id="descricao" placeholder="Descreva o seu pacote:"></textarea>
+                        <textarea id="descricao" placeholder="Descreva o seu pacote:" required></textarea>
+
+                        <label for="imagem">Imagem do Pacote</label>
+                        <input type="file" id="imagem" accept="image/*" required>
 
                         <button type="submit" class="submit-btn">Adicionar</button>
                     </form>
@@ -84,7 +89,10 @@
                     </div>
                 </div>
             </div>
+
+            <div id="travel-packages" class="travel-packages"></div>
         </section>
+
         <div class="loader">
             <div class="logo">
                 <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">

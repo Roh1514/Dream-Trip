@@ -860,22 +860,15 @@ html {
 
 .footer .social-icons a {
     font-size: 24px;
-    /* Tamanho dos ícones */
     color: #ffffff;
-    /* Cor dos ícones */
     margin: 0 5px;
-    /* Margem entre os ícones */
     transition: transform 0.3s, color 0.3s;
-    /* Transição suave */
     text-decoration: none;
-    /* Remove sublinhado do link */
 }
 
 .footer .social-icons a:hover {
     color: #007bff;
-    /* Cor ao passar o mouse */
     transform: scale(1.2);
-    /* Aumenta o tamanho ao passar o mouse */
 }
 
 .footer .copyright {
