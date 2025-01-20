@@ -64,35 +64,66 @@
 
         <section>
             <div class="form-section" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                <h2>Adicione aqui suas viagens e excursões:</h2>
-                <p class="highlight">Preencha aqui abaixo:</p>
-                <div class="form-container" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <h2>Adicione Seu Novo Pacote 👇</h2>
+                <h3>Preencha aqui abaixo o seu pacote:</h3>
+                <div class="form-container">
                     <form id="travel-package-form">
-                        <h3>Adicione um Pacote de Viagens:</h3>
-
-                        <label for="destinos">Destinos</label>
-                        <input type="text" id="destinos" placeholder="Destinos" required>
-
-                        <label for="preco">Preço</label>
-                        <input type="text" id="preco" placeholder="Preço (R$)" required>
+                        <label for="destinos">Nome do Pacote</label>
+                        <input type="text" id="destinos" placeholder="Nome do Pacote" required>
 
                         <label for="descricao">Descrição</label>
                         <textarea id="descricao" placeholder="Descreva o seu pacote:" required></textarea>
 
-                        <label for="imagem">Imagem do Pacote</label>
+                        <label for="dataInicio">Data de Início</label>
+                        <input type="date" id="dataInicio" required>
+
+                        <label for="dataTermino">Data de Término</label>
+                        <input type="date" id="dataTermino" required>
+
+                        <label for="localizacao">Localização</label>
+                        <input type="text" id="localizacao" placeholder="Localização" required>
+
+                        <label for="preco">Preço</label>
+                        <input type="text" id="preco" placeholder="Preço (R$)" required>
+
+                        <label for="imagem">Imagens</label>
                         <input type="file" id="imagem" accept="image/*" required>
 
-                        <button type="submit" class="submit-btn">Adicionar</button>
+                        <label for="duracao">Duração</label>
+                        <input type="number" id="duracao" placeholder="Duração (dias)" required>
+
+                        <label for="vagas">Número de Vagas</label>
+                        <input type="number" id="vagas" placeholder="Número de Vagas" required>
+
+                        <button type="submit" class="submit-btn">Adicionar Pacote</button>
                     </form>
+
                     <div class="form-image">
-                        <img src="/assets/imagem area do vendedor.png" alt="Pacote de Viagens">
+                        <img src="/assets/imagem area do vendedor.png" alt="Imagem representativa de pacotes de viagem">
                     </div>
+                    <div id="feedback" class="feedback"></div>
                 </div>
             </div>
 
-            <div id="travel-packages" class="travel-packages"></div>
+            <div id="travel-packages" class="travel-packages">
+                <h2>Meus Pacotes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome do Pacote</th>
+                            <th>Data</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="packages-list">
+                        <!-- Os pacotes adicionados aparecerão aqui -->
+                    </tbody>
+                </table>
+            </div>
         </section>
 
+        <script src="/JS/area do vendedor.js"></script>
         <div class="loader">
             <div class="logo">
                 <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">

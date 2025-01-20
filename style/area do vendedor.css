@@ -182,6 +182,8 @@ html {
     }
 }
 
+
+
 .corpo {
     display: flex;
     align-items: center;
@@ -235,8 +237,16 @@ button:hover {
 .form-section h2 {
     margin-left: 35rem;
     color: #ffffff;
-    margin-top: 30rem;
-    font-size: 1.5em;
+    margin-top: 17rem;
+    font-size: 1.7em;
+    margin-bottom: 1rem;
+}
+
+.form-section h3 {
+    margin-left: 35rem;
+    color: #b200b2;
+    font-size: 1.2em;
+    margin-bottom: 1rem;
 }
 
 .highlight {
@@ -259,7 +269,6 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
 }
-
 
 form {
     background-color: #ffffff;
@@ -327,6 +336,42 @@ form textarea {
     border-radius: 10px;
 }
 
+.travel-packages {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 200px;
+}
+
+table {
+    color: #ffffff;
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f200;
+}
+
+.validacao {
+    background-color: #ffffff;
+    color: #ff0000;
+}
+
+.validacao2 {
+    background-color: #ffffff;
+    color: #00af00;
+}
+
 /* Responsividade */
 @media (min-width: 768px) {
     .form-container {
@@ -345,7 +390,6 @@ form textarea {
         width: 40%;
         max-height: 400px;
     }
-
 }
 
 @media (min-width: 1024px) {
@@ -378,7 +422,6 @@ form textarea {
         margin-top: 7rem;
         font-size: 1.2em;
         text-align: center;
-        /* Centraliza o texto */
     }
 
     .highlight {
@@ -388,7 +431,6 @@ form textarea {
         text-align: center;
     }
 }
-
 
 .loader {
     position: fixed;
