@@ -192,6 +192,131 @@ input[type="email"] {
     transform: scale(1.1);
 }
 
+/* TELA PARA CONFIRMAÇÃO */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+h2 {
+    background-color: #ffffff;
+    margin: 0 0 10px;
+}
+
+p {
+    background-color: #ffffff;
+}
+
+.buttons {
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#noButton {
+    background-color: #ccc;
+}
+
+#noButton:hover {
+    background-color: #aaa;
+    transform: scale(1.05);
+}
+
+/* TELA PARA CONFIRMAÇÃO DO PIX */
+
+.pix-payment {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button1 {
+    background-color: #ffffff;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.close-button1:hover {
+    color: #cc0000;
+}
+
+.pix-payment h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.qr-code {
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.pix-payment p {
+    margin: 5px 0;
+}
+
+.pix-payment button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pix-payment button:hover {
+    background-color: #218838;
+}
 
 @media (max-width: 1200px) {
     .back-button-container {

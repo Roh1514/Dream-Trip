@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style/area de pagamento.css">
     <link rel="stylesheet" href="/JS/checkout.js">
     <script src="/JS/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 
 <body>
@@ -39,17 +40,17 @@
                 <input type="email" id="email" placeholder="Seu email" required>
             </div>
 
-            <div class="input-container" id="card-container">
+            <div class="input-container" id="card-container" style="display: none;">
                 <label for="card">Número do Cartão</label>
                 <input type="text" id="card" placeholder="Número do cartão" required>
             </div>
 
-            <div class="input-container" id="expiry-container">
+            <div class="input-container" id="expiry-container" style="display: none;">
                 <label for="expiry">Data Limite</label>
                 <input type="text" id="expiry" placeholder="dd/mm/aaaa" required>
             </div>
 
-            <div class="input-container" id="cvv-container">
+            <div class="input-container" id="cvv-container" style="display: none;">
                 <label for="cvv">CVV</label>
                 <input type="text" id="cvv" placeholder="CVV" required>
             </div>
@@ -81,6 +82,21 @@
             <div id="order-items"></div>
             <div id="total-price"></div>
         </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>Confirmação</h2>
+                <p>Deseja realmente concluir o pedido?</p>
+                <div class="buttons">
+                    <button id="noButton">Não</button>
+                    <button id="yesButton">Sim</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pix-payment-container" style="display:none;"></div>
+
+        <div id="mensagem"></div>
     </div>
 </body>
 

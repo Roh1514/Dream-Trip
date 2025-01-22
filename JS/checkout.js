@@ -19,7 +19,7 @@ function selectPaymentMethod(method, icon) {
         document.getElementById('cpf-container').style.display = 'block';
         document.getElementById('rg-container').style.display = 'block';
     } else if (method === 'boleto') {
-        document.getElementById('dob-container').style.display = 'block';
+        document.getElementById('cpf-container').style.display = 'block';
         document.getElementById('full-name').style.display = 'block';
     }
 
@@ -37,14 +37,12 @@ function verificarCampos() {
     const cvv = document.getElementById('cvv').value.trim();
     const fullName = document.getElementById('full-name').value.trim();
     const cpf = document.getElementById('cpf').value.trim();
-    const dob = document.getElementById('dob').value.trim();
     const rg = document.getElementById('rg').value.trim();
     const mensagem = document.getElementById('mensagem');
 
     mensagem.textContent = '';
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const dobPattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[0-9]{4}$/;
 
     if (!email || !emailPattern.test(email)) {
         mensagem.textContent = 'Por favor, preencha um email válido.';
@@ -77,15 +75,91 @@ function verificarCampos() {
             mensagem.textContent = 'Por favor, preencha um RG válido (apenas números).';
             return;
         }
+
+        const totalPrice = calculateTotalPrice();
+        // Exibir o modal de confirmação antes de mostrar o pagamento via Pix
+        document.getElementById('modal').style.display = 'flex';
+
+        // Lidar com os botões de confirmação
+        document.getElementById('noButton').onclick = function () {
+            document.getElementById('modal').style.display = 'none';
+        };
+
+        document.getElementById('yesButton').onclick = function () {
+            document.getElementById('modal').style.display = 'none';
+            displayPixPaymentScreen(totalPrice);
+        };
+
+        return;
     } else if (metodoPagamento === 'boleto') {
-        if (!dob || !dobPattern.test(dob)) {
-            mensagem.textContent = 'Por favor, preencha a data de nascimento no formato dd/mm/yyyy.';
+        if (!cpf || !/^\d+$/.test(cpf)) {
+            mensagem.textContent = 'Por favor, preencha um CPF válido (apenas números).';
             return;
         }
     }
 
-    mensagem.textContent = 'Compra realizada com sucesso!';
-    displayOrderSummary();
+    // Exibir o modal de confirmação para outros métodos de pagamento
+    document.getElementById('modal').style.display = 'flex';
+
+    document.getElementById('noButton').onclick = function () {
+        document.getElementById('modal').style.display = 'none';
+    };
+
+    document.getElementById('yesButton').onclick = function () {
+        mensagem.textContent = 'Compra realizada com sucesso!';
+        document.getElementById('modal').style.display = 'none';
+        displayOrderSummary();
+    };
+}
+
+function calculateTotalPrice() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
+}
+
+function generatePixQRCode(totalPrice) {
+    // Aqui você pode gerar um QR Code aleatório para o Pix
+    const pixCode = `Pix-${Math.random().toString(36).substring(2)}-R$${totalPrice}`;
+    return pixCode; // Retorne os dados que serão codificados no QR Code
+}
+
+function displayPixPaymentScreen(totalPrice) {
+    const pixPaymentContainer = document.getElementById('pix-payment-container');
+    const qrCodeData = generatePixQRCode(totalPrice);
+
+    // Gerar data de vencimento (exemplo: 2 horas a partir de agora)
+    const expirationDate = new Date();
+    expirationDate.setHours(expirationDate.getHours() + 2);
+    const formattedDate = expirationDate.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    pixPaymentContainer.innerHTML = `
+        <div class="pix-payment">
+            <div class="header">
+                <h2>Pagamento com Pix</h2>
+                <button class="close-button1" onclick="closePixPayment()">✖</button>
+            </div>
+            <div class="qr-code">${qrCodeData}</div>
+            <p>Vencimento: ${formattedDate}</p>
+            <p>Total: R$${totalPrice}</p>
+            <button class="pague-button2" onclick="copyPixCode('${qrCodeData}')">Copiar código Pix</button>
+        </div>
+    `;
+    pixPaymentContainer.style.display = 'block';
+}
+function closePixPayment() {
+    document.getElementById('pix-payment-container').style.display = 'none';
+}
+
+function copyPixCode(code) {
+    navigator.clipboard.writeText(code).then(() => {
+        alert('Código Pix copiado para a área de transferência!');
+    });
 }
 
 function displayOrderSummary() {
