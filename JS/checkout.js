@@ -77,10 +77,8 @@ function verificarCampos() {
         }
 
         const totalPrice = calculateTotalPrice();
-        // Exibir o modal de confirmação antes de mostrar o pagamento via Pix
         document.getElementById('modal').style.display = 'flex';
 
-        // Lidar com os botões de confirmação
         document.getElementById('noButton').onclick = function () {
             document.getElementById('modal').style.display = 'none';
         };
@@ -96,9 +94,10 @@ function verificarCampos() {
             mensagem.textContent = 'Por favor, preencha um CPF válido (apenas números).';
             return;
         }
+        displayBoletoPaymentScreen();
+        return;
     }
 
-    // Exibir o modal de confirmação para outros métodos de pagamento
     document.getElementById('modal').style.display = 'flex';
 
     document.getElementById('noButton').onclick = function () {
@@ -118,18 +117,17 @@ function calculateTotalPrice() {
 }
 
 function generatePixQRCode(totalPrice) {
-    // Aqui você pode gerar um QR Code aleatório para o Pix
     const pixCode = `Pix-${Math.random().toString(36).substring(2)}-R$${totalPrice}`;
-    return pixCode; // Retorne os dados que serão codificados no QR Code
+    return pixCode;
 }
 
-function displayPixPaymentScreen(totalPrice) {
+function displayPixPaymentScreen() {
+    const totalPrice = calculateTotalPrice();
     const pixPaymentContainer = document.getElementById('pix-payment-container');
     const qrCodeData = generatePixQRCode(totalPrice);
 
-    // Gerar data de vencimento (exemplo: 2 horas a partir de agora)
     const expirationDate = new Date();
-    expirationDate.setHours(expirationDate.getHours() + 2);
+    expirationDate.setMinutes(expirationDate.getMinutes() + 30);
     const formattedDate = expirationDate.toLocaleString('pt-BR', {
         day: '2-digit',
         month: '2-digit',
@@ -144,21 +142,79 @@ function displayPixPaymentScreen(totalPrice) {
                 <h2>Pagamento com Pix</h2>
                 <button class="close-button1" onclick="closePixPayment()">✖</button>
             </div>
-            <div class="qr-code">${qrCodeData}</div>
+            <canvas id="pix-qr-code" class="qr-code"></canvas>
             <p>Vencimento: ${formattedDate}</p>
             <p>Total: R$${totalPrice}</p>
             <button class="pague-button2" onclick="copyPixCode('${qrCodeData}')">Copiar código Pix</button>
         </div>
     `;
+
+    const qrCode = new QRious({
+        element: document.getElementById('pix-qr-code'),
+        value: qrCodeData,
+        size: 160
+    });
+
     pixPaymentContainer.style.display = 'block';
 }
+
 function closePixPayment() {
     document.getElementById('pix-payment-container').style.display = 'none';
 }
 
 function copyPixCode(code) {
     navigator.clipboard.writeText(code).then(() => {
-        alert('Código Pix copiado para a área de transferência!');
+        const alertBox = document.getElementById('alert');
+        alertBox.innerText = 'Código Pix copiado para a área de transferência!';
+        alertBox.style.display = 'block';
+
+        setTimeout(() => {
+            alertBox.style.display = 'none';
+        }, 3000);
+    });
+}
+
+function generateBoletoCode() {
+    return `Boleto-${Math.random().toString(36).substring(2)}-Vencimento:${new Date().toLocaleDateString()}`;
+}
+
+function displayBoletoPaymentScreen() {
+    const boletoCode = generateBoletoCode();
+    const boletoPaymentContainer = document.getElementById('boleto-payment-container');
+
+    boletoPaymentContainer.classList.add('active');
+    boletoPaymentContainer.innerHTML = `
+        <div class="boleto-payment">
+            <div class="header">
+                <h2>Pagamento com Boleto</h2>
+                <button class="btn-button" onclick="closeBoletoPayment()">✖</button>
+            </div>
+            <div class="boleto1-payment">
+                <textarea id="boleto-code" readonly>${boletoCode}</textarea>
+                <button class="copy-button" onclick="copyBoletoCode('${boletoCode}')">Copiar código do Boleto</button>
+            </div>
+        </div>
+        
+    `;
+
+    boletoPaymentContainer.style.display = 'block';
+}
+
+function closeBoletoPayment() {
+    document.getElementById('boleto-payment-container').style.display = 'none';
+    boletoPaymentContainer.classList.remove('active');
+    boletoPaymentContainer.style.display = 'none';
+}
+
+function copyBoletoCode(code) {
+    navigator.clipboard.writeText(code).then(() => {
+        const alertBox = document.getElementById('alert');
+        alertBox.innerText = 'Código do Boleto copiado para a área de transferência!';
+        alertBox.style.display = 'block';
+
+        setTimeout(() => {
+            alertBox.style.display = 'none';
+        }, 3000);
     });
 }
 
