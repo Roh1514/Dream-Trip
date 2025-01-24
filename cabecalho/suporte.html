@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style/suporte.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/JS/suporte.js"></script>
 </head>
 
 <body>
@@ -54,10 +55,8 @@
                 <div class="support-content">
                     <h2>Como podemos ajudar você hoje?</h2>
                     <p>Se você estiver enfrentando problemas ou tiver dúvidas, nossa equipe de suporte está pronta para
-                        ajudar.
-                    </p>
-
-                    <form action="#" method="POST">
+                        ajudar.</p>
+                    <form id="supportForm" onsubmit="return sendMessage(event)">
                         <label for="name">Nome</label>
                         <input type="text" id="name" name="name" placeholder="Seu nome" required>
 
@@ -79,6 +78,16 @@
                     </form>
                 </div>
             </div>
+
+            <div id="confirmationModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <img src="/assets/caminhao-do-correio.gif" alt="Caminhão de entrega"
+                        style="width: 100px; height: auto; margin-bottom: 10px;">
+                    <p>Sua mensagem foi enviada com sucesso! Responderemos você brevemente.</p>
+                    <button onclick="closeModal()">Fechar</button>
+                </div>
+            </div>
+
             <div class="loader">
                 <div class="logo">
                     <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
