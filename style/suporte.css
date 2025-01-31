@@ -161,7 +161,7 @@ html {
     cursor: pointer;
     border: 2px solid white;
     border-radius: 25px;
-    padding: 4px;
+    padding: 1px;
     margin-right: 20px;
 }
 
@@ -169,10 +169,12 @@ html {
     display: flex;
     align-items: center;
     overflow: hidden;
+    border-radius: 20px;
     transition: width 0.3s ease-in-out;
 }
 
 .search-box input {
+    margin-top: 10px;
     border: none;
     background-color: transparent;
     color: white;
