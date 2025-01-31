@@ -19,3 +19,4 @@ function toggleElement(element) {
         element.classList.remove('active');
     }
 }
+
