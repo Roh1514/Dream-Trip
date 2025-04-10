@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
@@ -18,24 +18,18 @@
           <h2 class="title">Login</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Seu Email" id="username" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" id="senha" placeholder="Password" />
+            <input type="password" id="password" placeholder="Senha" />
             <i class="fa-regular fa-eye-slash" id="btn-senha" onclick="mostrarSenha()"></i>
           </div>
           <div class="forgot-password">
             <a href="/cabecalho/esqueceu _senha.html" id="esqueceu-senha">Esqueceu a senha?</a>
           </div>
 
-          <a href="/index.html">
-            <input type="button" value="Login" class="btn solid">
-          </a>
-          <a href="#">
-            <input type="button" value="Cliente" class="btg solid">
-            <input type="submit" value="Organizador" class="btg Organizador ">
-          </a>
+          <input type="button" value="Login" class="btn solid" id="submit-login">
           <p class="social-text">Logue com outras plataformas!</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -64,28 +58,25 @@
           <h2 class="title">Crie sua Conta</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Usuário" id="signup-username" />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" placeholder="Seu Email" id="signup-email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" id="senha2" placeholder="Password" />
+            <input type="password" id="signup-password" placeholder="Senha" />
             <i class="fa-regular fa-eye-slash" id="btn-senha2" onclick="mostrarSenha2()"></i>
           </div>
           <div class="forgot-password">
             <a href="/cabecalho/esqueceu _senha.html" id="esqueceu-senha">Esqueceu a senha?</a>
           </div>
-          <a href="/index.html">
-            <input type="button" value="Sign up" class="btn solid">
-          </a>
+          <input type="button" value="Sign up" class="btn solid" id="submit">
           <a href="#">
-            <input type="button" value="Cliente" class="btg solid">
-            <input type="submit" value="Organizador" class="btg Organizador ">
+            <input type="button" value="Cliente" class="btg solid" id="cliente">
+            <input type="submit" value="Organizador" class="btg Organizador" id="organizador">
           </a>
-
           <p class="social-text">Logue com outras plataformas!</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -151,7 +142,6 @@
   <div class="content">
   </div>
 
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loader = document.querySelector('.loader');
@@ -166,6 +156,7 @@
     });
   </script>
   <script src="/JS/login.js"></script>
+  <script type="module" src="/JS/firebaseauth.js" defer></script>
 </body>
 
 </html>

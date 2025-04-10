@@ -1,5 +1,5 @@
 function mostrarSenha() {
-    var inputfield = document.getElementById('senha');
+    var inputfield = document.getElementById('password');
     var btnShowPass = document.getElementById('btn-senha');
 
     if (inputfield.type === 'password') {
@@ -12,7 +12,7 @@ function mostrarSenha() {
 }
 
 function mostrarSenha2() {
-    var inputfield = document.getElementById('senha2');
+    var inputfield = document.getElementById('signup-password');
     var btnShowPass = document.getElementById('btn-senha2');
 
     if (inputfield.type === 'password') {
@@ -23,7 +23,6 @@ function mostrarSenha2() {
         btnShowPass.classList.replace('fa-eye', 'fa-eye-slash');
     }
 }
-
 
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");

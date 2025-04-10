@@ -176,7 +176,6 @@ form.sign-in-form {
   background-color: #4de2b5;
 }
 
-
 .btg {
   width: 120px;
   background-color: #0d0e0d;
@@ -195,6 +194,17 @@ form.sign-in-form {
 .btg:hover {
   background-color: #817d7d;
 }
+
+.btg.selected {
+  background-color: #0a9e40;
+  box-shadow: 0 0 10px rgba(12, 230, 85, 0.3);
+  transform: scale(1.05);
+}
+
+.btg.selected:hover {
+  background-color: #0cb34a;
+}
+
 
 .panels-container {
   position: absolute;
@@ -332,6 +342,35 @@ form.sign-in-form {
 
 .termos-link:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .loader {
