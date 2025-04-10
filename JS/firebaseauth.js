@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD76ms3XFc5TpUa0oJBuqJKlR8yBnTAPv4",
@@ -16,7 +15,6 @@ const firebaseConfig = {
     measurementId: "G-2XC38CH1KZ"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
@@ -27,12 +25,7 @@ let userTypeSignup = "";
 const clienteBtn = document.getElementById("cliente");
 const organizadorBtn = document.getElementById("organizador");
 
-
 const submitLogin = document.getElementById("submit-login");
-let userTypeLogin = "";
-const clienteBtnLogin = document.getElementById("cliente-login");
-const organizadorBtnLogin = document.getElementById("organizador-login");
-
 
 function showErrorMessage(message, formType) {
     const existingMessage = document.querySelector(`.${formType} .error-message`);
@@ -48,8 +41,8 @@ function showErrorMessage(message, formType) {
         const buttonContainer = clienteBtn.parentElement;
         buttonContainer.parentElement.insertBefore(errorDiv, buttonContainer.nextSibling);
     } else if (formType === "sign-in-form") {
-        const buttonContainer = clienteBtnLogin.parentElement;
-        buttonContainer.parentElement.insertBefore(errorDiv, buttonContainer.nextSibling);
+        const loginButton = document.getElementById("submit-login");
+        loginButton.parentElement.insertBefore(errorDiv, loginButton.nextSibling);
     }
 
     setTimeout(() => {
@@ -141,20 +134,6 @@ submitSignup.addEventListener('click', function (event) {
         });
 });
 
-clienteBtnLogin.addEventListener('click', function () {
-    userTypeLogin = "Cliente";
-    console.log("Tipo de usuário (login) selecionado:", userTypeLogin);
-    clienteBtnLogin.classList.add("selected");
-    organizadorBtnLogin.classList.remove("selected");
-});
-
-organizadorBtnLogin.addEventListener('click', function () {
-    userTypeLogin = "Organizador";
-    console.log("Tipo de usuário (login) selecionado:", userTypeLogin);
-    organizadorBtnLogin.classList.add("selected");
-    clienteBtnLogin.classList.remove("selected");
-});
-
 submitLogin.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -167,41 +146,21 @@ submitLogin.addEventListener('click', async function (event) {
         return;
     }
 
-    if (!userTypeLogin) {
-        showErrorMessage("Por favor, selecione se você é Cliente ou Organizador.", "sign-in-form");
-        return;
-    }
-
     try {
-        const usersRef = collection(db, "users");
-        const q = query(usersRef, where("email", "==", email));
-        const querySnapshot = await getDocs(q);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-        if (querySnapshot.empty) {
-            showErrorMessage("Erro: Email não encontrado.", "sign-in-form");
-            return;
-        }
-
-        let userData = null;
-        querySnapshot.forEach((doc) => {
-            userData = doc.data();
-        });
-
-        if (userData.password !== password) {
-            showErrorMessage("Erro: Senha incorreta.", "sign-in-form");
-            return;
-        }
-
-        if (userData.userType !== userTypeLogin) {
-            showErrorMessage("Erro: Tipo de usuário incorreto. Você é um " + userData.userType + ".", "sign-in-form");
-            return;
-        }
-
-        console.log("Usuário logado com sucesso:", userData);
-        console.log("Tipo de usuário (login):", userTypeLogin);
+        console.log("Usuário logado com sucesso:", user);
         window.location.href = "/index.html";
+
     } catch (error) {
         console.error("Erro ao fazer login:", error);
-        showErrorMessage("Erro: Não foi possível fazer login. Tente novamente.", "sign-in-form");
+        let errorMessage = "Erro: Não foi possível fazer login. Verifique suas credenciais.";
+        if (error.code === "auth/user-not-found") {
+            errorMessage = "Erro: Email não encontrado.";
+        } else if (error.code === "auth/wrong-password") {
+            errorMessage = "Erro: Senha incorreta.";
+        }
+        showErrorMessage(errorMessage, "sign-in-form");
     }
 });
