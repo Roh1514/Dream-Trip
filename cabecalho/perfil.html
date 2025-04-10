@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Avançado</title>
+    <link rel="stylesheet" href="/style/perfil.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/180" alt="Foto de Perfil" class="profile-pic">
+            <h1 id="userName">Nome do Usuário</h1>
+            <span class="status">Online</span>
+        </div>
+
+        <div class="section" id="personalInfo">
+            <h2>Informações Pessoais</h2>
+            <div class="info-item">
+                <span>Nome:</span>
+                <input type="text" value="Nome do Usuário" disabled>
+            </div>
+            <div class="info-item">
+                <span>Email:</span>
+                <input type="email" value="usuario@email.com" disabled>
+            </div>
+            <button class="btn edit-btn" onclick="toggleEdit()">Editar</button>
+            <button class="btn save-btn" onclick="saveChanges()">Salvar</button>
+        </div>
+
+        <div class="section">
+            <h2>Segurança</h2>
+            <p>Status: <span class="security-status">Protegido</span></p>
+            <div class="security-info">
+                Autenticação de dois fatores ativa | Última alteração de senha: 10/03/2025
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Personalização</h2>
+            <p>Escolha sua cor de tema:</p>
+            <div class="customization-options">
+                <input type="color" class="color-picker" onchange="changeTheme(this.value)">
+                <button class="btn" onclick="resetTheme()">Resetar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/perfil.js"></script>
+</body>
+
+</html>

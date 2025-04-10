@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Trip</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="/JS/script.js">
-    <script src="/JS/script.js"></script>
-    <link rel="stylesheet" href="/JS/faq.js">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -19,7 +16,6 @@
 
 <body>
     <header id="header">
-
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="menu-button">☰</label>
         <!-- Sidebar no lado direito -->
@@ -46,22 +42,31 @@
             </ul>
         </nav>
         <div class="container3">
-            <div class="search-container" id="searchContainer">
-                <div class="search-icon">
-                    <span style="color: white;">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#e8eaed">
-                            <path
-                                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="search-box" id="searchBox">
-                    <input type="text" placeholder="Pesquisar..." />
-                </div>
-            </div>
             <div class="button-container">
                 <a href="/cabecalho/login-cadastro.html" class="login-button">Login</a>
+                <!-- Área de perfil com o avatar e dropdown -->
+            </div>
+            <div class="profile-area">
+                <div class="profile-link">
+                    <img src="/assets/avatar perfil.jpg" alt="Avatar do Usuário" class="user-avatar">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-menu">
+                        <a href="/cabecalho/perfil.html" class="dropdown-item" id="profile-link">Perfil</a>
+                        <a href="#" class="dropdown-item" id="logout-button">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmação de logout -->
+        <div class="modal-overlay" id="logout-modal">
+            <div class="modal-content">
+                <h2>Deseja sair?</h2>
+                <p>Tem certeza que deseja fazer logout da sua conta?</p>
+                <div class="modal-buttons">
+                    <button class="modal-button cancel" id="cancel-logout">Cancelar</button>
+                    <button class="modal-button confirm" id="confirm-logout">Sair</button>
+                </div>
             </div>
         </div>
     </header>
@@ -203,32 +208,31 @@
     </section>
     <section>
         <div class="faq-title">Perguntas Frequentes</div>
-        <h3 onclick="toggleElement(this)">Pergunta 1 <span class="icon">▼</span></h3>
         <div class="faq-container" data-aos="fade-up">
             <div class="faq">
-                <h3 onclick="toggleElement(this)">1. Quais são os destinos disponíveis?</h3>
-                <div class="faq-content" style="display: none;">
+                <h3 onclick="toggleElement(this)">1. Quais são os destinos disponíveis? <span class="icon">▼</span></h3>
+                <div class="faq-content">
                     <p>Oferecemos excursões para diversos destinos, incluindo praias, montanhas e cidades históricas.
                         Confira nossa página de destinos para mais detalhes.</p>
                 </div>
             </div>
             <div class="faq">
-                <h3 onclick="toggleElement(this)">2. Como posso reservar uma excursão?</h3>
-                <div class="faq-content" style="display: none;">
+                <h3 onclick="toggleElement(this)">2. Como posso reservar uma excursão? <span class="icon">▼</span></h3>
+                <div class="faq-content">
                     <p>Você pode reservar uma excursão diretamente em nosso site, selecionando o destino e a data
-                        desejada.
-                    </p>
+                        desejada.</p>
                 </div>
             </div>
             <div class="faq">
-                <h3 onclick="toggleElement(this)">3. Quais são as formas de pagamento aceitas?</h3>
-                <div class="faq-content" style="display: none;">
+                <h3 onclick="toggleElement(this)">3. Quais são as formas de pagamento aceitas? <span
+                        class="icon">▼</span></h3>
+                <div class="faq-content">
                     <p>Aceitamos cartões de crédito, débito e pagamentos via PayPal.</p>
                 </div>
             </div>
             <div class="faq">
-                <h3 onclick="toggleElement(this)">4. Há descontos para grupos?</h3>
-                <div class="faq-content" style="display: none;">
+                <h3 onclick="toggleElement(this)">4. Há descontos para grupos? <span class="icon">▼</span></h3>
+                <div class="faq-content">
                     <p>Sim, oferecemos descontos especiais para grupos. Entre em contato conosco para mais informações.
                     </p>
                 </div>
@@ -236,7 +240,6 @@
         </div>
     </section>
 
-    <script src="/JS/faq.js"></script>
     <div class="loader">
         <div class="logo">
             <img src="/assets/logo_dream_trip.png" alt="Dream Trip Logo">
@@ -273,41 +276,12 @@
         <div class="copyright">COPYRIGHT © 2025 - DREAM TRIP TODOS OS DIREITOS RESERVADOS.</div>
     </footer>
 
-    </div>
-    <!-- Parte Script JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loader = document.querySelector('.loader');
-            const content = document.querySelector('.content');
-
-            loader.style.display = 'flex';
-
-            setTimeout(() => {
-                loader.style.display = 'none';
-                content.style.display = 'block';
-            }, 1500);
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="/JS/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
-
-    <script>
-        const searchContainer = document.getElementById('searchContainer');
-        const searchBox = document.getElementById('searchBox');
-
-        searchContainer.addEventListener('mouseenter', () => {
-            searchBox.style.width = '150px';
-        });
-
-        searchContainer.addEventListener('mouseleave', () => {
-            searchBox.style.width = '0';
-        });
-    </script>
-
-
-
 </body>
 
 </html>
