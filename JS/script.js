@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Função para o FAQ (melhorada)
     function toggleElement(element) {
         if (!element || !element.nextElementSibling) {
             console.error('Elemento ou conteúdo não encontrado.');
@@ -8,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const content = element.nextElementSibling;
         const isOpen = content.classList.contains('show');
-
-        // Fecha outros itens abertos no FAQ
         const allFaqItems = document.querySelectorAll('.faq h3');
         allFaqItems.forEach((item) => {
             if (item !== element) {
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Alterna o item clicado
         if (!isOpen) {
             content.classList.add('show');
             content.style.display = 'block';
@@ -40,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Aplica a função toggleElement a todos os elementos do FAQ
+
     const faqItems = document.querySelectorAll('.faq h3');
     faqItems.forEach((item) => {
         item.addEventListener('click', () => toggleElement(item));
     });
 
-    // Função para o dropdown do avatar
+
     const profileLink = document.querySelector('.profile-link');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const userAvatar = document.querySelector('.user-avatar');
@@ -54,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
 
     if (profileLink && dropdownMenu && userAvatar) {
-        // Alterna o dropdown ao clicar no avatar
+
         userAvatar.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             console.log('Avatar clicado, toggling dropdown');
             dropdownMenu.classList.toggle('active');
 
-            // Fecha todos os itens do FAQ quando o dropdown é aberto
+
             if (dropdownMenu.classList.contains('active')) {
                 faqItems.forEach((item) => {
                     const content = item.nextElementSibling;
@@ -75,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Fecha o dropdown se clicar fora dele
+
         document.addEventListener('click', (e) => {
             if (!profileLink.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 console.log('Clicado fora do dropdown, fechando');
@@ -83,19 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Permite navegação ao clicar no link "Perfil"
+
         if (profileLinkItem) {
             profileLinkItem.addEventListener('click', (e) => {
-                e.preventDefault(); // Impede o comportamento padrão temporariamente
+                e.preventDefault();
                 console.log('Perfil link clicado, navegando para: /cabecalho/perfil.html');
-                dropdownMenu.classList.remove('active'); // Fecha o dropdown
+                dropdownMenu.classList.remove('active');
                 setTimeout(() => {
-                    window.location.href = '/cabecalho/perfil.html'; // Navega diretamente
-                }, 400); // Atraso para permitir que a animação de fechamento do dropdown termine
+                    window.location.href = '/cabecalho/perfil.html';
+                }, 400);
             });
         }
 
-        // Função para abrir o modal de logout
+
         const logoutButton = document.querySelector('#logout-button');
         const logoutModal = document.querySelector('#logout-modal');
         const confirmLogout = document.querySelector('#confirm-logout');
@@ -106,11 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Logout button clicado, abrindo modal');
-                dropdownMenu.classList.remove('active'); // Fecha o dropdown
-                logoutModal.classList.add('active'); // Abre o modal
+                dropdownMenu.classList.remove('active');
+                logoutModal.classList.add('active');
             });
 
-            // Confirma o logout
+
             confirmLogout.addEventListener('click', () => {
                 console.log('Logout confirmado');
                 if (typeof firebase !== 'undefined') {
@@ -125,13 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Cancela o logout
+
             cancelLogout.addEventListener('click', () => {
                 console.log('Logout cancelado');
-                logoutModal.classList.remove('active'); // Fecha o modal
+                logoutModal.classList.remove('active');
             });
 
-            // Fecha o modal ao clicar fora dele
             logoutModal.addEventListener('click', (e) => {
                 if (e.target === logoutModal) {
                     console.log('Clicado fora do modal, fechando');
@@ -141,18 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Garante que o botão de login navegue corretamente
     if (loginButton) {
         loginButton.addEventListener('click', (e) => {
             console.log('Login button clicado, navegando para: /cabecalho/login-cadastro.html');
-            // A navegação ocorre normalmente via href, mas podemos forçar se necessário
             setTimeout(() => {
                 window.location.href = '/cabecalho/login-cadastro.html';
             }, 100);
         });
     }
 
-    // Lógica de login para mostrar/esconder o avatar
     if (typeof firebase !== 'undefined') {
         firebase.auth().onAuthStateChanged((user) => {
             const loginButton = document.querySelector('.login-button');
@@ -170,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica do loader
     const loader = document.querySelector('.loader');
     const content = document.querySelector('.content');
 

@@ -4,37 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Avançado</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="/style/perfil.css">
 </head>
 
 <body>
     <div class="container">
         <div class="profile-header">
-            <img src="https://via.placeholder.com/180" alt="Foto de Perfil" class="profile-pic">
+            <img src="/assets/avatar perfil.jpg" alt="Foto de Perfil" class="profile-pic" id="profileImage"> <input
+                type="file" id="profilePictureInput" accept="image/*" style="display: none;"
+                onchange="changeProfilePicture(event)">
+
+            <button class="btn" id="changePicButton" onclick="triggerFileInput()" style="margin-top: 10px;">Alterar
+                Foto</button>
+
             <h1 id="userName">Nome do Usuário</h1>
             <span class="status">Online</span>
         </div>
-
         <div class="section" id="personalInfo">
             <h2>Informações Pessoais</h2>
             <div class="info-item">
                 <span>Nome:</span>
-                <input type="text" value="Nome do Usuário" disabled>
+                <input type="text" id="nameInput" value="Nome do Usuário" disabled>
             </div>
             <div class="info-item">
                 <span>Email:</span>
-                <input type="email" value="usuario@email.com" disabled>
+                <input type="email" id="emailInput" value="usuario@email.com" disabled>
             </div>
             <button class="btn edit-btn" onclick="toggleEdit()">Editar</button>
             <button class="btn save-btn" onclick="saveChanges()">Salvar</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="securitySection">
             <h2>Segurança</h2>
-            <p>Status: <span class="security-status">Protegido</span></p>
+            <p>Status: <span class="security-status" id="securityStatus">Protegido</span></p>
             <div class="security-info">
-                Autenticação de dois fatores ativa | Última alteração de senha: 10/03/2025
+                <div class="security-option">
+                    <span>Autenticação de Dois Fatores (2FA):</span>
+                    <div class="toggle-switch" id="twoFactorToggle" onclick="toggleTwoFactor()">
+                        <div class="switch-handle"></div>
+                    </div>
+                </div>
+                <div class="security-option">
+                    <span>Força da Senha:</span>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                </div>
+                <button class="btn" onclick="showChangePassword()">Alterar Senha</button>
+            </div>
+            <div class="login-history" id="loginHistory">
+                <h3>Histórico de Logins</h3>
+                <ul id="loginList"></ul>
+                <button class="btn" onclick="clearLoginHistory()">Limpar Histórico</button>
+            </div>
+            <div class="change-password hidden" id="changePasswordForm">
+                <h3>Alterar Senha</h3>
+                <input type="password" id="currentPassword" placeholder="Senha Atual">
+                <input type="password" id="newPassword" placeholder="Nova Senha" oninput="checkPasswordStrength()">
+                <input type="password" id="confirmPassword" placeholder="Confirmar Nova Senha">
+                <button class="btn save-btn" onclick="changePassword()">Salvar Senha</button>
+                <button class="btn" onclick="hideChangePassword()">Cancelar</button>
             </div>
         </div>
 
@@ -44,9 +74,39 @@
             <div class="customization-options">
                 <input type="color" class="color-picker" onchange="changeTheme(this.value)">
                 <button class="btn" onclick="resetTheme()">Resetar</button>
+                <div class="theme-toggle" onclick="toggleTheme()"></div>
+                <span>Tema Claro/Escuro</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Conquistas</h2>
+            <div class="achievements">
+                <div class="achievement-item" id="achievement1" onclick="unlockAchievement('achievement1')">
+                    <i>🏆</i>
+                    <p>Mestre do Perfil</p>
+                </div>
+                <div class="achievement-item locked" id="achievement2" onclick="unlockAchievement('achievement2')">
+                    <i>⭐</i>
+                    <p>5 Estrelas</p>
+                </div>
+                <div class="achievement-item locked" id="achievement3" onclick="unlockAchievement('achievement3')">
+                    <i>🔒</i>
+                    <p>Segurança Máxima</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Atividade</h2>
+            <div class="activity-counter">
+                <p>Logins este mês: <span id="loginCount">42</span></p>
+                <button class="btn" onclick="simulateLogin()">Simular Login</button>
             </div>
         </div>
     </div>
+
+    <div class="notification" id="notification"></div>
 
     <script src="/JS/perfil.js"></script>
 </body>
