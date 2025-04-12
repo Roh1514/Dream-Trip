@@ -9,15 +9,12 @@
 </head>
 
 <body>
+    <button class="btn-back" onclick="window.location.href='/index.html'"> Voltar</button>
     <div class="container">
         <div class="profile-header">
             <img src="/assets/avatar perfil.jpg" alt="Foto de Perfil" class="profile-pic" id="profileImage"> <input
                 type="file" id="profilePictureInput" accept="image/*" style="display: none;"
                 onchange="changeProfilePicture(event)">
-
-            <button class="btn" id="changePicButton" onclick="triggerFileInput()" style="margin-top: 10px;">Alterar
-                Foto</button>
-
             <h1 id="userName">Nome do Usuário</h1>
             <span class="status">Online</span>
         </div>
@@ -108,6 +105,10 @@
 
     <div class="notification" id="notification"></div>
 
+    <!-- Carregar Firebase via script tags -->
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
     <script src="/JS/perfil.js"></script>
 </body>
 

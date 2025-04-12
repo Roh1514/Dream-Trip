@@ -147,6 +147,11 @@ html {
     box-shadow: 0 4px 15px rgb(0, 0, 0);
 }
 
+#logoutButton {
+    background-color: #ff4444;
+    color: white;
+}
+
 .profile-area {
     display: inline-block;
     margin-left: 15px;

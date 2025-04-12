@@ -1,3 +1,19 @@
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyD76ms3XFc5TpUa0oJBuqJKlR8yBnTAPv4",
+    authDomain: "dream-trip-3ccb3.firebaseapp.com",
+    databaseURL: "https://dream-trip-3ccb3-default-rtdb.firebaseio.com",
+    projectId: "dream-trip-3ccb3",
+    storageBucket: "dream-trip-3ccb3.firebasestorage.app",
+    messagingSenderId: "462885890076",
+    appId: "1:462885890076:web:816bb3729a407fabe3d7d9",
+    measurementId: "G-2XC38CH1KZ"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
 let loginCount = 42;
 let isEditing = false;
 let twoFactorEnabled = true;
@@ -6,6 +22,43 @@ let loginHistory = [
     "09/04/2025 09:15 - IP: 192.168.1.2",
     "08/04/2025 22:47 - IP: 192.168.1.3"
 ];
+
+function loadUserData() {
+    console.log("Iniciando loadUserData...");
+    auth.onAuthStateChanged(async (user) => {
+        console.log("onAuthStateChanged disparado.");
+        if (user) {
+            console.log("Usuário logado detectado:", user.uid);
+            try {
+                const userDocRef = db.collection("users").doc(user.uid);
+                const userDoc = await userDocRef.get();
+                if (userDoc.exists) {
+                    const userData = userDoc.data();
+                    console.log("Dados do Firestore:", userData);
+                    document.getElementById('userName').textContent = userData.displayName || "Nome do Usuário";
+                    document.getElementById('nameInput').value = userData.displayName || "Nome do Usuário";
+                    document.getElementById('emailInput').value = userData.email || "usuario@email.com";
+                    showNotification("Dados do usuário carregados com sucesso!");
+                } else {
+                    console.error("Documento do usuário não encontrado no Firestore.");
+                    showNotification("Erro: Usuário não encontrado no banco de dados.");
+                }
+            } catch (error) {
+                console.error("Erro ao buscar dados do Firestore:", error);
+                showNotification("Erro ao carregar dados do usuário.");
+            }
+        } else {
+            console.log("Nenhum usuário logado.");
+            showNotification("Nenhum usuário logado. Redirecionando para login...");
+            setTimeout(() => {
+                window.location.href = "/login.html";
+            }, 2000);
+        }
+    }, (error) => {
+        console.error("Erro no onAuthStateChanged:", error);
+        showNotification("Erro ao verificar autenticação.");
+    });
+}
 
 function toggleEdit() {
     const inputs = document.querySelectorAll('#personalInfo input');
@@ -17,14 +70,31 @@ function toggleEdit() {
     animateButton('.edit-btn');
 }
 
-function saveChanges() {
+async function saveChanges() {
     if (!isEditing) return;
     const nameInput = document.getElementById('nameInput');
     const emailInput = document.getElementById('emailInput');
     nameInput.disabled = true;
     emailInput.disabled = true;
     isEditing = false;
-    showNotification('Alterações salvas com sucesso!');
+
+    try {
+        const user = auth.currentUser;
+        if (user) {
+            const userDocRef = db.collection("users").doc(user.uid);
+            await userDocRef.update({
+                displayName: nameInput.value,
+                email: emailInput.value
+            });
+            document.getElementById('userName').textContent = nameInput.value;
+            showNotification('Alterações salvas com sucesso!');
+        } else {
+            showNotification('Nenhum usuário logado.');
+        }
+    } catch (error) {
+        console.error("Erro ao salvar alterações:", error);
+        showNotification('Erro ao salvar alterações.');
+    }
     animateButton('.save-btn');
 }
 
@@ -182,24 +252,68 @@ function hideChangePassword() {
     animateElement('#changePasswordForm', 'pulse');
 }
 
-function changePassword() {
+async function changePassword() {
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Verifica se as senhas coincidem
     if (newPassword !== confirmPassword) {
         showNotification('As senhas não coincidem!');
         return;
     }
+
+    // Verifica o comprimento mínimo da senha
     if (newPassword.length < 8) {
         showNotification('A senha deve ter pelo menos 8 caracteres!');
         return;
     }
-    hideChangePassword();
-    showNotification('Senha alterada com sucesso!');
-    checkPasswordStrength();
-    document.getElementById('currentPassword').value = '';
-    document.getElementById('newPassword').value = '';
-    document.getElementById('confirmPassword').value = '';
+
+    try {
+        const user = auth.currentUser;
+        if (!user) {
+            showNotification('Nenhum usuário logado.');
+            return;
+        }
+
+        // Reautenticar o usuário antes de mudar a senha
+        const credential = firebase.auth.EmailAuthProvider.credential(
+            user.email,
+            currentPassword
+        );
+        await user.reauthenticateWithCredential(credential);
+
+        // Atualizar a senha no Firebase Authentication
+        await user.updatePassword(newPassword);
+
+        // Atualizar o Firestore com metadados da alteração de senha
+        const userDocRef = db.collection("users").doc(user.uid);
+        await userDocRef.update({
+            lastPasswordChange: firebase.firestore.FieldValue.serverTimestamp(),
+            passwordChangeCount: firebase.firestore.FieldValue.increment(1)
+        });
+
+        // Limpar os campos e esconder o formulário
+        hideChangePassword();
+        document.getElementById('currentPassword').value = '';
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+
+        showNotification('Senha alterada com sucesso!');
+        checkPasswordStrength();
+    } catch (error) {
+        console.error("Erro ao alterar senha:", error);
+        if (error.code === 'auth/wrong-password') {
+            showNotification('Senha atual incorreta.');
+        } else if (error.code === 'auth/requires-recent-login') {
+            showNotification('Por favor, faça login novamente para alterar a senha.');
+            setTimeout(() => {
+                window.location.href = '/login.html';
+            }, 2000);
+        } else {
+            showNotification('Erro ao alterar a senha. Tente novamente.');
+        }
+    }
 }
 
 function addLoginToHistory() {
@@ -224,6 +338,31 @@ function clearLoginHistory() {
     updateLoginHistory();
     showNotification('Histórico de logins limpo!');
     animateButton('#loginHistory .btn');
+}
+
+function triggerFileInput() {
+    console.log("Botão 'Mudar Foto' clicado.");
+    const fileInput = document.getElementById('profilePictureInput');
+    if (fileInput) {
+        fileInput.click();
+        animateButton('#changePicButton');
+        console.log("Input de arquivo acionado.");
+    } else {
+        console.log("Erro: #profilePictureInput não encontrado.");
+        showNotification('Erro ao abrir seletor de arquivos.');
+    }
+}
+
+function changeProfilePicture(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profileImage').src = e.target.result;
+            showNotification('Foto de perfil atualizada!');
+        };
+        reader.readAsDataURL(file);
+    }
 }
 
 const styleSheet = document.createElement('style');
@@ -252,23 +391,11 @@ styleSheet.textContent = `
 `;
 document.head.appendChild(styleSheet);
 
-function triggerFileInput() {
-    console.log("Botão 'Mudar Foto' clicado.");
-    const fileInput = document.getElementById('profilePictureInput');
-    if (fileInput) {
-        fileInput.click();
-        animateButton('.change-picture-btn');
-        console.log("Input de arquivo acionado.");
-    } else {
-        console.log("Erro: #profilePictureInput não encontrado.");
-        showNotification('Erro ao abrir seletor de arquivos.');
-    }
-}
-
-
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM carregado, inicializando...");
     addParticles();
     document.querySelector('#userName').addEventListener('click', toggleStatus);
     updateLoginHistory();
     updateSecurityStatus();
-};
+    loadUserData();
+});

@@ -46,6 +46,42 @@ body {
     }
 }
 
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #6e8efb, #0c1991);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    outline: none;
+}
+
+.btn-back:hover {
+    background: linear-gradient(135deg, #5a75d6, #2f0494);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-back:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 18px;
+}
+
 
 .profile-header {
     background: linear-gradient(45deg, #1e3a5f, #0a1a2f);
@@ -121,74 +157,23 @@ body {
     }
 }
 
-/* Adicione ou ajuste estas regras no seu /style/perfil.css */
 
 .profile-header {
     display: flex;
     flex-direction: column;
-    /* Empilha os itens verticalmente */
     align-items: center;
-    /* Centraliza os itens horizontalmente */
     text-align: center;
-    /* Centraliza o texto dentro dos elementos filhos */
     margin-bottom: 20px;
-    /* Espaço abaixo do cabeçalho */
 }
 
 .profile-pic {
     width: 120px;
-    /* Ajuste o tamanho conforme necessário */
     height: 120px;
     border-radius: 50%;
-    /* Mantém a forma circular */
     object-fit: cover;
-    /* Garante que a imagem cubra a área sem distorcer */
     margin-bottom: 10px;
-    /* Espaço abaixo da foto */
-    cursor: pointer;
-    /* Indica que a imagem é clicável (se mantiver o onclick nela) */
-}
-
-#changePicButton {
-    /* margin-top: 10px;  Pode colocar aqui em vez de inline style */
-    padding: 8px 15px;
-    /* Ajuste o padding do botão */
-    cursor: pointer;
-    /* Outros estilos do seu tema .btn */
-}
-
-#userName {
-    margin-top: 10px;
-    /* Espaço acima do nome */
-    margin-bottom: 5px;
-    /* Espaço abaixo do nome */
-}
-
-.notification {
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.profile-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.btn {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
 
 .status {
     display: inline-flex;
